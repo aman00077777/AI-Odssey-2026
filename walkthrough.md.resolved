@@ -1,0 +1,43 @@
+# AI Odyssey 2026 - MERN Integration & Animation Updates
+
+## What Was Accomplished
+I have completely restructured the AI Odyssey website to use the **MERN** (MongoDB, Express, React, Node.js) stack and built a custom `<OpeningAnimation />` using an SVG of Ultron powered by `anime.js`!
+
+### Key Structural Changes:
+- **Frontend (React/Vite)**: 
+  - Extracted the static HTML and CSS into a dedicated React application located in `/frontend/src`.
+  - Built modular React components: `App.jsx`, `MainOverlay.jsx`, and `OpeningAnimation.jsx`.
+  - Upgraded the static scroll and countdown timer to rely on React hooks (`useEffect`, `useState`).
+- **Backend (Node/Express)**:
+  - Initialized a Node.js backend in `/backend`.
+  - Created a robust Express server (`server.js`) equipped with CORS and a `POST /api/register` endpoint.
+  - Setup a MongoDB connection via Mongoose with a well-defined `User.js` model schema.
+- **Anime.js SVG Integration**:
+  - Engineered an inline scalable vector graphics (SVG) representation of an abstract Ultron face.
+  - Employed `anime.js` to animate the stroke drawing of Ultron's face, the glowing of his red eyes, and the synchronized appearance of the glitch text and the newly requested typing effect: **"WELCOME TO AI ODYSSEY 2026"**.
+
+## How to Run Your Application
+Since the website is now a full-stack application, it requires running two separate servers.
+
+### 1. Run the Backend Server
+Open a terminal in your project directory and run:
+```bash
+cd backend
+npm install
+node server.js
+```
+*The server will start on port 5000 and connect to your local MongoDB database.*
+
+### 2. Run the React Frontend
+Open a new terminal in your project directory and run:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*Vite will start the development server. You can view your animated Marvel MERN site by opening `http://localhost:5173` in your browser!*
+
+## Verification
+- verified standard React component lifecycle.
+- verified REST API payload passing from React Form to the Express backend.
+- Resolved Vite Rolldown build crashes by successfully downgrading to a stable parser combination using standard `animejs@3.2.1`.
