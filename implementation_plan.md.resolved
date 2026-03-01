@@ -1,0 +1,44 @@
+# AI Odyssey - MERN Stack Implementation Plan
+
+The user requested to transition the website to the MERN (MongoDB, Express, React, Node.js) stack and to create an animated Ultron greeting using `anime.js` directly.
+
+## Architecture Change
+The current static HTML/CSS/JS files will be removed or repurposed. We will split the project into two main directories:
+- `/frontend`: A React application (built with Vite).
+- `/backend`: A Node.js/Express application with MongoDB connection.
+
+## Proposed Changes
+
+### 1. Initialization & Cleanup
+- Delete `index.html`, `styles.css`, `script.js`.
+- Initialize `/backend` with `npm init -y`, `express`, `mongoose`, `cors`, `dotenv`.
+- Initialize `/frontend` using `npx create-vite@latest frontend --template react`.
+
+### 2. Backend Implementation
+#### [NEW] `backend/server.js`
+- Setup Express server.
+- Connect to MongoDB via Mongoose.
+- Create a simple Registration API endpoint (since the UI has a "Register Now" button).
+#### [NEW] `backend/models/User.js`
+- Mongoose schema for user registration (Name, Email, etc.).
+
+### 3. Frontend Implementation
+#### [MODIFY] `frontend/src/components/MainOverlay.jsx`
+- Reorder and expand the layout to match the requested structure:
+  1. Hero section with Timer
+  2. **[NEW]** AI Department section
+  3. About AI Odyssey section
+  4. **[MODIFY]** Games section with the following games: Catch the word, Quiz, Treasure Hunt, Escape Room, AI or NOT, Mini Shark Tank, Binary Coding. Each game gets "Rule Book" and "About It" buttons.
+  5. **[MODIFY]** Registration section (add criteria and registration button)
+  6. **[NEW]** Previous AI Odyssey section
+  7. **[NEW]** Sponsors section
+- Update the Navbar links to include these new targets.
+
+#### [MODIFY] `frontend/src/index.css`
+- Add necessary styling for the sponsor grids, previous odyssey showcase, and the updated game cards layout to ensure they look stunning in 3 columns.
+
+## Verification Plan
+- Run the backend on port 5000 and frontend on port 5173.
+- Verify the Anime.js SVG animation of Ultron.
+- Ensure the React conversion matches the original aesthetic.
+- (Optional) Test the registration endpoint.
