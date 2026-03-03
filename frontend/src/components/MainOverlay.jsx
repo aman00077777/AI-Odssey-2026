@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import anime from 'animejs';
-import axios from 'axios';
+
 import { Link } from 'react-scroll';
 
 const MainOverlay = () => {
@@ -11,10 +11,6 @@ const MainOverlay = () => {
         days: '00', hours: '00', mins: '00', secs: '00'
     });
 
-    // Registration state
-    const [regName, setRegName] = useState('');
-    const [regEmail, setRegEmail] = useState('');
-    const [regStatus, setRegStatus] = useState('');
 
     // Floating Coming Soon state
     const [comingSoonPos, setComingSoonPos] = useState({ show: false, x: 0, y: 0 });
@@ -115,21 +111,6 @@ const MainOverlay = () => {
         };
     }, []);
 
-    const handleRegister = async (e) => {
-        e.preventDefault();
-        setRegStatus('Registering...');
-        try {
-            const res = await axios.post('http://localhost:5000/api/register', {
-                name: regName,
-                email: regEmail
-            });
-            setRegStatus(res.data.message || 'Success!');
-            setRegName('');
-            setRegEmail('');
-        } catch (error) {
-            setRegStatus(error.response?.data?.message || 'Error occurred.');
-        }
-    };
 
     return (
         <div className="main-content">
@@ -144,6 +125,7 @@ const MainOverlay = () => {
                         <li><Link to="about" smooth={true} duration={500}>About</Link></li>
                         <li><Link to="games" smooth={true} duration={500}>Games</Link></li>
                         <li><Link to="schedule" smooth={true} duration={500}>Schedule</Link></li>
+                        <li><Link to="speakers" smooth={true} duration={500}>Speakers</Link></li>
                         <li><Link to="sponsors" smooth={true} duration={500}>Sponsors</Link></li>
                     </ul>
                     <Link to="register" smooth={true} duration={500} className="btn btn-primary">Register Now</Link>
@@ -183,7 +165,7 @@ const MainOverlay = () => {
 
                         {/* 2.1 About AI Odyssey (2 Images) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title">ABOUT AI ODYSSEY 2026</h2>
+                            <h2 className="section-title">AI ODYSSEY 2026</h2>
                             <div className="about-grid">
                                 <div className="about-text" style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>
                                     <p style={{ marginBottom: '15px' }}>We are super excited to announce the launch of AI Odyssey 2026 — the ultimate celebration of innovation, creativity, and next-level technology! This isn't just an event; it's a high-energy platform where ideas spark, skills shine, and future tech leaders rise.</p>
@@ -198,7 +180,7 @@ const MainOverlay = () => {
 
                         {/* 2.2 The AI Department (4 Images) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title">ABOUT THE AI DEPARTMENT</h2>
+                            <h2 className="section-title">THE AI DEPARTMENT</h2>
                             <div className="about-block-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering is a dynamic center of innovation and future-ready education. With a strong focus on Artificial Intelligence, Machine Learning, and emerging technologies, the department equips students with the technical expertise and problem-solving abilities required to address real-world challenges.</p>
                             </div>
@@ -230,7 +212,7 @@ const MainOverlay = () => {
 
                         {/* 2.4 About JARVIS Forum */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title">ABOUT JARVIS FORUM</h2>
+                            <h2 className="section-title">JARVIS FORUM</h2>
                             <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>JARVIS is the official student forum of the Department of Artificial Intelligence at G.H. Raisoni College of Engineering, Nagpur. It is dedicated to fostering innovation, creativity, leadership, and technical excellence among students passionate about Artificial Intelligence and emerging technologies.</p>
                             </div>
@@ -241,7 +223,7 @@ const MainOverlay = () => {
 
                         {/* 2.5 About IEEE-CIS, GHRCE */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title">ABOUT IEEE-CIS, GHRCE</h2>
+                            <h2 className="section-title">IEEE-CIS, GHRCE</h2>
                             <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE Computational Intelligence Society (IEEE CIS) is a global community dedicated to advancing computational intelligence technologies such as neural networks, fuzzy systems, and evolutionary algorithms. It promotes innovation, research, and the practical application of intelligent systems across diverse real-world domains.</p>
                             </div>
@@ -343,6 +325,34 @@ const MainOverlay = () => {
                 </div>
             </section>
 
+            {/* 4.5 Speakers Section */}
+            <section id="speakers" className="speakers section">
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <h2 className="section-title">Our <span>Speakers</span></h2>
+                    <p className="section-subtitle">Insights from industry leaders.</p>
+
+                    <div className="speakers-grid">
+                        {[
+                            { name: 'Dr. Sarah Connor', role: 'AI Ethics Researcher', desc: 'Pioneer in ethical frameworks for AGI development.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                            { name: 'Alex Turing', role: 'Lead Data Scientist', desc: 'Expert in generative models and natural language processing.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                            { name: 'Elena Rostova', role: 'Robotics Engineer', desc: 'Innovator in human-robot interaction and cognitive automation.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                            { name: 'Marcus Sterling', role: 'Tech Entrepreneur', desc: 'Founder of NextGen AI, focusing on scalable intelligence solutions.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
+                        ].map((speaker, idx) => (
+                            <div className="speaker-card" key={idx}>
+                                <div className="speaker-img-wrapper">
+                                    <img src={speaker.img} alt={speaker.name} />
+                                </div>
+                                <div className="speaker-info">
+                                    <h3>{speaker.name}</h3>
+                                    <h4>{speaker.role}</h4>
+                                    <p>{speaker.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* 5. Registration Section */}
             <section id="register" className="section" style={{ textAlign: 'center' }}>
                 <div className="container">
@@ -357,19 +367,6 @@ const MainOverlay = () => {
                         </ul>
                     </div>
 
-                    <h2 className="section-subtitle" style={{ marginBottom: '20px', color: 'white' }}>Secure your place in the future.</h2>
-                    <form onSubmit={handleRegister} style={{ maxWidth: '500px', margin: '0 auto', background: 'rgba(10,10,10,0.8)', padding: '40px', borderRadius: '8px', border: '1px solid var(--marvel-red)' }}>
-                        <div style={{ marginBottom: '20px', textAlign: 'left' }}>
-                            <label style={{ display: 'block', marginBottom: '8px', color: 'var(--silver)' }}>Name</label>
-                            <input type="text" value={regName} onChange={e => setRegName(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '4px', border: 'none', background: '#222', color: 'white' }} />
-                        </div>
-                        <div style={{ marginBottom: '30px', textAlign: 'left' }}>
-                            <label style={{ display: 'block', marginBottom: '8px', color: 'var(--silver)' }}>Email</label>
-                            <input type="email" value={regEmail} onChange={e => setRegEmail(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '4px', border: 'none', background: '#222', color: 'white' }} />
-                        </div>
-                        <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Submit</button>
-                        {regStatus && <p style={{ marginTop: '20px', color: 'var(--marvel-red)' }}>{regStatus}</p>}
-                    </form>
                 </div>
             </section>
 
