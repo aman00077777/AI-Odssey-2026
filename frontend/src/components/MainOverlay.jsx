@@ -16,8 +16,8 @@ const MainOverlay = () => {
     const [comingSoonPos, setComingSoonPos] = useState({ show: false, x: 0, y: 0 });
 
     const handleComingSoonClick = (e) => {
-        // Use pageX and pageY to account for scroll position
-        setComingSoonPos({ show: true, x: e.pageX, y: e.pageY });
+        // Use clientX and clientY for position fixed
+        setComingSoonPos({ show: true, x: e.clientX, y: e.clientY });
 
         // Hide after 1.5 seconds
         setTimeout(() => {
@@ -113,55 +113,60 @@ const MainOverlay = () => {
 
 
     return (
-        <div className="main-content">
-            {/* Navbar */}
+        <>
+            {/* Navbar - Moved outside main-content for true fixed positioning */}
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className="nav-container">
                     <a href="#" className="logo">
                         <span className="logo-ai">AI</span> ODYSSEY
                     </a>
                     <ul className="nav-links">
-                        <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-                        <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-                        <li><Link to="games" smooth={true} duration={500}>Games</Link></li>
-                        <li><Link to="schedule" smooth={true} duration={500}>Schedule</Link></li>
-                        <li><Link to="speakers" smooth={true} duration={500}>Speakers</Link></li>
-                        <li><Link to="sponsors" smooth={true} duration={500}>Sponsors</Link></li>
+                        <li><Link activeClass="active" to="home" spy={true} smooth={true} offset={-100} duration={500}>Home</Link></li>
+                        <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500}>About</Link></li>
+                        <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500}>Games</Link></li>
+                        <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500}>Schedule</Link></li>
+                        <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
+                        <li><Link activeClass="active" to="sponsors" spy={true} smooth={true} offset={-100} duration={500}>Sponsors</Link></li>
                     </ul>
                     <Link to="register" smooth={true} duration={500} className="btn btn-primary">Register Now</Link>
                 </div>
             </nav>
 
-            {/* 1. Consolidated Home Section */}
-            <section id="home" className="hero section" style={{ height: 'auto', paddingBottom: '100px' }}>
-                <div className="hero-bg"></div>
-                <div className="container hero-content" style={{ marginTop: '100px' }}>
+            <div className="main-content">
 
-                    <div className="hero-welcome-wrapper">
-                        <div className="welcome-line"></div>
-                        <h2 className="welcome-text">WELCOME TO THE</h2>
-                        <div className="welcome-line"></div>
+                {/* 1. Consolidated Home Section */}
+                <section id="home" className="hero section" style={{ height: 'auto', paddingBottom: '100px' }}>
+                    <div className="hero-bg"></div>
+                    <div className="container hero-content" style={{ marginTop: '100px' }}>
+
+                        <div className="hero-welcome-wrapper">
+                            <div className="welcome-line"></div>
+                            <h2 className="welcome-text">WELCOME TO THE</h2>
+                            <div className="welcome-line"></div>
+                        </div>
+
+                        <h1 className="hero-title-main">
+                            <span className="ai-text">AI</span>-<span className="odyssey-text">ODYSSEY</span>
+                        </h1>
+
+                        <p className="hero-subtitle">The dawn of a new era. Are you ready to assemble?</p>
+
+                        <div className="countdown" style={{ marginBottom: '80px' }}>
+                            {['days', 'hours', 'mins', 'secs'].map((unit, idx) => (
+                                <React.Fragment key={unit}>
+                                    <div className="time-box">
+                                        <span>{timeLeft[unit]}</span>
+                                    </div>
+                                    {idx < 3 && <div className="time-separator">:</div>}
+                                </React.Fragment>
+                            ))}
+                        </div>
                     </div>
+                </section>
 
-                    <h1 className="hero-title-main">
-                        <span className="ai-text">AI</span>-<span className="odyssey-text">ODYSSEY</span>
-                    </h1>
-
-                    <p className="hero-subtitle">The dawn of a new era. Are you ready to assemble?</p>
-
-                    <div className="countdown" style={{ marginBottom: '80px' }}>
-                        {['days', 'hours', 'mins', 'secs'].map((unit, idx) => (
-                            <React.Fragment key={unit}>
-                                <div className="time-box">
-                                    <span>{timeLeft[unit]}</span>
-                                </div>
-                                {idx < 3 && <div className="time-separator">:</div>}
-                            </React.Fragment>
-                        ))}
-                    </div>
-
-                    {/* 2. Standalone About Section */}
-                    <div id="about" className="about-sequence section" style={{ background: 'rgba(10, 10, 10, 0.4)', marginTop: '50px', marginLeft: '-15px', marginRight: '-15px', padding: '50px 15px' }}>
+                {/* 2. Standalone About Section */}
+                <section id="about" className="about-sequence section" style={{ background: 'rgba(10, 10, 10, 0.4)', marginTop: '50px', padding: '50px 15px' }}>
+                    <div className="container" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
 
                         {/* 2.1 About AI Odyssey (2 Images) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
@@ -248,156 +253,156 @@ const MainOverlay = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 3. Games Section (Sliding format) */}
-            <section id="games" className="games section games-section-container">
-                {/* SVG Filter for the Monotone Noise Effect */}
-                <svg style={{ display: 'none' }}>
-                    <filter id="monotone-noise">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" />
-                    </filter>
-                </svg>
+                {/* 3. Games Section (Sliding format) */}
+                <section id="games" className="games section games-section-container">
+                    {/* SVG Filter for the Monotone Noise Effect */}
+                    <svg style={{ display: 'none' }}>
+                        <filter id="monotone-noise">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" />
+                        </filter>
+                    </svg>
 
-                <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1400px' }}>
-                    <h2 className="section-title">THE <span>GAMES</span></h2>
+                    <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1400px' }}>
+                        <h2 className="section-title">THE <span>GAMES</span></h2>
 
-                    <div className="games-slider-container">
-                        {[
-                            { name: 'Catch the word and win', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'Quiz', img: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'Treasure Hunt', img: 'https://images.unsplash.com/photo-1505506874110-6a7a6c9924cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'Escape room', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'AI or Not', img: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'Invento-mania', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                            { name: 'Binary Coding', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
-                        ].map((game, idx) => (
-                            <div className="game-glass-card" key={idx}>
-                                <div className="game-card-img-container">
-                                    <div className="game-card-img" style={{ backgroundImage: `url(${game.img})` }}></div>
-                                </div>
-                                <div className="game-card-info">
-                                    <h3>{game.name}</h3>
-                                    <div className="game-card-actions">
-                                        <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
-                                        <button className="btn btn-primary" onClick={handleComingSoonClick}>About It</button>
+                        <div className="games-slider-container">
+                            {[
+                                { name: 'Catch the word and win', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'Quiz', img: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'Treasure Hunt', img: 'https://images.unsplash.com/photo-1505506874110-6a7a6c9924cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'Escape room', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'AI or Not', img: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'Invento-mania', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                                { name: 'Binary Coding', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+                            ].map((game, idx) => (
+                                <div className="game-glass-card" key={idx}>
+                                    <div className="game-card-img-container">
+                                        <div className="game-card-img" style={{ backgroundImage: `url(${game.img})` }}></div>
+                                    </div>
+                                    <div className="game-card-info">
+                                        <h3>{game.name}</h3>
+                                        <div className="game-card-actions">
+                                            <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
+                                            <button className="btn btn-primary" onClick={handleComingSoonClick}>About It</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 4. Schedule Section (Infinity Stones) */}
-            <section id="schedule" className="schedule section" style={{ background: 'rgba(10,10,10,0.8)' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h2 className="section-title">Infinity Stone <span>Schedule</span></h2>
-                    <p className="section-subtitle">Trace the timeline of the Odyssey.</p>
+                {/* 4. Schedule Section (Infinity Stones) */}
+                <section id="schedule" className="schedule section" style={{ background: 'rgba(10,10,10,0.8)' }}>
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <h2 className="section-title">Infinity Stone <span>Schedule</span></h2>
+                        <p className="section-subtitle">Trace the timeline of the Odyssey.</p>
 
-                    <div className="infinity-timeline">
-                        <div className="timeline-line"></div>
-                        {[
-                            { name: "Space", color: "#1E88E5", event: "Registration Begins", time: "09:00 AM" },
-                            { name: "Mind", color: "#FFD54F", event: "Inauguration Ceremony", time: "09:30 AM - 10:30 AM" },
-                            { name: "Reality", color: "#E53935", event: "Speaker Workshop Session", time: "10:30 AM - 12:00PM" },
-                            { name: "Power", color: "#8E24AA", event: <>Games Session (2 Game)<br /><span className="game-subtext">Binary Code<br />Quiz</span></>, time: "12:00 PM - 01:00 AM" },
-                            { name: "Time", color: "#43A047", event: "Lunch Break", time: "01:00 PM - 01:45 PM" },
-                            { name: "Soul", color: "#FB8C00", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. Shark Tank (Rounds 1: PPT Shortlisting<br />Round 2: Pitch)<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
-                            { name: "Space", color: "#1E88E5", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. AI Or Not<br />2. Find The Word &amp; Win Points</span></>, time: "3:45 PM - 04:30 PM" },
-                            { name: "Mind", color: "#FFD54F", event: "Treasure Hunt", time: "04:30 PM - 05:30 PM" },
-                            { name: "Reality", color: "#E53935", event: "Prize Distribution & Closing Ceremony", time: "5:30 PM" }
-                        ].map((stone, idx) => (
-                            <div className="timeline-item" key={idx}>
-                                <div className="stone-wrapper">
-                                    <div className="infinity-stone" style={{ backgroundColor: stone.color, boxShadow: `0 0 20px ${stone.color}` }}></div>
+                        <div className="infinity-timeline">
+                            <div className="timeline-line"></div>
+                            {[
+                                { name: "Space", color: "#1E88E5", event: "Registration Begins", time: "09:00 AM" },
+                                { name: "Mind", color: "#FFD54F", event: "Inauguration Ceremony", time: "09:30 AM - 10:30 AM" },
+                                { name: "Reality", color: "#E53935", event: "Speaker Workshop Session", time: "10:30 AM - 12:00PM" },
+                                { name: "Power", color: "#8E24AA", event: <>Games Session (2 Game)<br /><span className="game-subtext">Binary Code<br />Quiz</span></>, time: "12:00 PM - 01:00 AM" },
+                                { name: "Time", color: "#43A047", event: "Lunch Break", time: "01:00 PM - 01:45 PM" },
+                                { name: "Soul", color: "#FB8C00", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. Shark Tank (Rounds 1: PPT Shortlisting<br />Round 2: Pitch)<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
+                                { name: "Space", color: "#1E88E5", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. AI Or Not<br />2. Find The Word &amp; Win Points</span></>, time: "3:45 PM - 04:30 PM" },
+                                { name: "Mind", color: "#FFD54F", event: "Treasure Hunt", time: "04:30 PM - 05:30 PM" },
+                                { name: "Reality", color: "#E53935", event: "Prize Distribution & Closing Ceremony", time: "5:30 PM" }
+                            ].map((stone, idx) => (
+                                <div className="timeline-item" key={idx}>
+                                    <div className="stone-wrapper">
+                                        <div className="infinity-stone" style={{ backgroundColor: stone.color, boxShadow: `0 0 20px ${stone.color}` }}></div>
+                                    </div>
+                                    <div className="timeline-content">
+                                        <h4 style={{ color: stone.color }}>{stone.name} Stone</h4>
+                                        <h3><span className="event-box">{stone.event}</span></h3>
+                                        <span className="time-box">{stone.time}</span>
+                                    </div>
                                 </div>
-                                <div className="timeline-content">
-                                    <h4 style={{ color: stone.color }}>{stone.name} Stone</h4>
-                                    <h3><span className="event-box">{stone.event}</span></h3>
-                                    <span className="time-box">{stone.time}</span>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* 4.5 Speakers Section */}
+                <section id="speakers" className="speakers section">
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <h2 className="section-title">Our <span>Speakers</span></h2>
+                        <p className="section-subtitle">Insights from industry leaders.</p>
+
+                        <div className="speakers-grid">
+                            {[
+                                { name: 'Dr. Sarah Connor', role: 'AI Ethics Researcher', desc: 'Pioneer in ethical frameworks for AGI development.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                                { name: 'Alex Turing', role: 'Lead Data Scientist', desc: 'Expert in generative models and natural language processing.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                                { name: 'Elena Rostova', role: 'Robotics Engineer', desc: 'Innovator in human-robot interaction and cognitive automation.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+                                { name: 'Marcus Sterling', role: 'Tech Entrepreneur', desc: 'Founder of NextGen AI, focusing on scalable intelligence solutions.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
+                            ].map((speaker, idx) => (
+                                <div className="speaker-card" key={idx}>
+                                    <div className="speaker-img-wrapper">
+                                        <img src={speaker.img} alt={speaker.name} />
+                                    </div>
+                                    <div className="speaker-info">
+                                        <h3>{speaker.name}</h3>
+                                        <h4>{speaker.role}</h4>
+                                        <p>{speaker.desc}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 4.5 Speakers Section */}
-            <section id="speakers" className="speakers section">
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h2 className="section-title">Our <span>Speakers</span></h2>
-                    <p className="section-subtitle">Insights from industry leaders.</p>
+                {/* 5. Registration Section */}
+                <section id="register" className="section" style={{ textAlign: 'center' }}>
+                    <div className="container">
+                        <h2 className="section-title">Registration <span>Criteria</span></h2>
 
-                    <div className="speakers-grid">
-                        {[
-                            { name: 'Dr. Sarah Connor', role: 'AI Ethics Researcher', desc: 'Pioneer in ethical frameworks for AGI development.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                            { name: 'Alex Turing', role: 'Lead Data Scientist', desc: 'Expert in generative models and natural language processing.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                            { name: 'Elena Rostova', role: 'Robotics Engineer', desc: 'Innovator in human-robot interaction and cognitive automation.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                            { name: 'Marcus Sterling', role: 'Tech Entrepreneur', desc: 'Founder of NextGen AI, focusing on scalable intelligence solutions.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
-                        ].map((speaker, idx) => (
-                            <div className="speaker-card" key={idx}>
-                                <div className="speaker-img-wrapper">
-                                    <img src={speaker.img} alt={speaker.name} />
+                        <div className="criteria-box" style={{ maxWidth: '800px', margin: '0 auto 40px auto', background: 'var(--glass-bg)', padding: '30px', borderRadius: '8px', border: '1px solid var(--glass-border)', textAlign: 'left', color: 'var(--silver)' }}>
+                            <ul style={{ paddingLeft: '20px', lineHeight: '2' }}>
+                                <li>Must be an enrolled student in a recognized university.</li>
+                                <li>Teams can consist of 1 to 4 members.</li>
+                                <li>A valid student ID is required for on-campus entry.</li>
+                                <li>Registration is non-transferable.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+                {/* 6. Sponsors Section (Moved to Bottom) */}
+                <section id="sponsors" className="sponsors section" style={{ paddingBottom: '100px', minHeight: '100vh' }}>
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <h2 className="section-title">Our <span>Sponsors</span></h2>
+                        <p className="section-subtitle">The visionaries backing our initiative.</p>
+                        <div className="sponsors-grid" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '40px' }}>
+                            {[...Array(5)].map((_, idx) => (
+                                <div key={idx} style={{ width: '150px', height: '100px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #333', fontSize: '1.2rem', color: 'var(--silver)', fontWeight: 'bold' }}>
+                                    SPONSOR {idx + 1}
                                 </div>
-                                <div className="speaker-info">
-                                    <h3>{speaker.name}</h3>
-                                    <h4>{speaker.role}</h4>
-                                    <p>{speaker.desc}</p>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 5. Registration Section */}
-            <section id="register" className="section" style={{ textAlign: 'center' }}>
-                <div className="container">
-                    <h2 className="section-title">Registration <span>Criteria</span></h2>
-
-                    <div className="criteria-box" style={{ maxWidth: '800px', margin: '0 auto 40px auto', background: 'var(--glass-bg)', padding: '30px', borderRadius: '8px', border: '1px solid var(--glass-border)', textAlign: 'left', color: 'var(--silver)' }}>
-                        <ul style={{ paddingLeft: '20px', lineHeight: '2' }}>
-                            <li>Must be an enrolled student in a recognized university.</li>
-                            <li>Teams can consist of 1 to 4 members.</li>
-                            <li>A valid student ID is required for on-campus entry.</li>
-                            <li>Registration is non-transferable.</li>
-                        </ul>
+                {/* Floating Coming Soon Message */}
+                {comingSoonPos.show && (
+                    <div
+                        className="floating-coming-soon"
+                        style={{
+                            left: comingSoonPos.x,
+                            top: comingSoonPos.y
+                        }}
+                    >
+                        COMING SOON
                     </div>
-
-                </div>
-            </section>
-
-            {/* 6. Sponsors Section (Moved to Bottom) */}
-            <section id="sponsors" className="sponsors section" style={{ paddingBottom: '100px' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h2 className="section-title">Our <span>Sponsors</span></h2>
-                    <p className="section-subtitle">The visionaries backing our initiative.</p>
-                    <div className="sponsors-grid" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '40px' }}>
-                        {[...Array(5)].map((_, idx) => (
-                            <div key={idx} style={{ width: '150px', height: '100px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #333', fontSize: '1.2rem', color: 'var(--silver)', fontWeight: 'bold' }}>
-                                SPONSOR {idx + 1}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Floating Coming Soon Message */}
-            {comingSoonPos.show && (
-                <div
-                    className="floating-coming-soon"
-                    style={{
-                        left: comingSoonPos.x,
-                        top: comingSoonPos.y
-                    }}
-                >
-                    COMING SOON
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 };
 

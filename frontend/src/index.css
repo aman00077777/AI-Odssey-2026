@@ -162,7 +162,7 @@ a {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
-  z-index: 1000;
+  z-index: 9999;
   transition: all 0.3s ease;
 }
 
@@ -232,6 +232,17 @@ a {
 
 .nav-links li a:hover::after {
   width: 100%;
+}
+
+.nav-links li a.active {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links li a.active::after {
+  width: 100%;
+  background: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
 .nav-links li a:hover {
@@ -970,7 +981,7 @@ a {
   color: #4ddbff;
   text-shadow: 0 0 15px rgba(0, 200, 255, 0.9), 2px 2px 0px #000;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   transform: translate(-50%, -100%);
   animation: flyUpAndFade 1.5s ease-out forwards;
 }
