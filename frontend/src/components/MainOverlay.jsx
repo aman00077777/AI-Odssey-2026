@@ -16,8 +16,16 @@ const MainOverlay = () => {
     const [comingSoonPos, setComingSoonPos] = useState({ show: false, x: 0, y: 0 });
 
     const handleComingSoonClick = (e) => {
-        // Use clientX and clientY for position fixed
-        setComingSoonPos({ show: true, x: e.clientX, y: e.clientY });
+        // Prevent default behavior if it's acting as a link
+        e.preventDefault();
+
+        // Use clientX and clientY for position fixed, ensuring we get valid numbers
+        const xPos = e.clientX || window.innerWidth / 2;
+        const yPos = e.clientY || window.innerHeight / 2;
+
+        console.log("Coming soon clicked:", xPos, yPos);
+
+        setComingSoonPos({ show: true, x: xPos, y: yPos });
 
         // Hide after 1.5 seconds
         setTimeout(() => {
@@ -283,9 +291,8 @@ const MainOverlay = () => {
                                     </div>
                                     <div className="game-card-info">
                                         <h3>{game.name}</h3>
-                                        <div className="game-card-actions">
+                                        <div className="game-card-actions" style={{ justifyContent: 'center' }}>
                                             <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
-                                            <button className="btn btn-primary" onClick={handleComingSoonClick}>About It</button>
                                         </div>
                                     </div>
                                 </div>
@@ -387,20 +394,20 @@ const MainOverlay = () => {
                         </div>
                     </div>
                 </section>
-
-                {/* Floating Coming Soon Message */}
-                {comingSoonPos.show && (
-                    <div
-                        className="floating-coming-soon"
-                        style={{
-                            left: comingSoonPos.x,
-                            top: comingSoonPos.y
-                        }}
-                    >
-                        COMING SOON
-                    </div>
-                )}
             </div>
+
+            {/* Floating Coming Soon Message - Moved absolutely outside to prevent clipping */}
+            {comingSoonPos.show && (
+                <div
+                    className="floating-coming-soon"
+                    style={{
+                        left: comingSoonPos.x,
+                        top: comingSoonPos.y
+                    }}
+                >
+                    COMING SOON
+                </div>
+            )}
         </>
     );
 };
