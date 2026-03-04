@@ -128,7 +128,7 @@ const MainOverlay = () => {
                         <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
                         <li><Link activeClass="active" to="sponsors" spy={true} smooth={true} offset={-100} duration={500}>Sponsors</Link></li>
                     </ul>
-                    <Link to="register" smooth={true} duration={500} className="btn btn-primary">Register Now</Link>
+                    <a href="https://forms.gle/VdYfMQMAQvV512dXA" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Register Now</a>
                 </div>
             </nav>
 
@@ -166,19 +166,18 @@ const MainOverlay = () => {
 
                 {/* 2. Standalone About Section */}
                 <section id="about" className="about-sequence section" style={{ background: 'rgba(10, 10, 10, 0.4)', marginTop: '50px', padding: '50px 15px' }}>
-                    <div className="container" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+                    <div className="container" style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
 
-                        {/* 2.1 About AI Odyssey (2 Images) */}
+                        {/* 2.1 About AI Odyssey (1 Image) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">AI ODYSSEY 2026</h2>
                             <div className="about-grid">
-                                <div className="about-text" style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>
+                                <div className="about-img-grid" style={{ display: 'flex', justifyContent: 'center' }}>
+                                    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tech 1" style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px', border: '1px solid #333' }} />
+                                </div>
+                                <div className="about-text" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
                                     <p style={{ marginBottom: '15px' }}>We are super excited to announce the launch of AI Odyssey 2026 — the ultimate celebration of innovation, creativity, and next-level technology! This isn't just an event; it's a high-energy platform where ideas spark, skills shine, and future tech leaders rise.</p>
                                     <p>This year, we're turning things up by blending the power of Artificial Intelligence with the thrill of gaming. Expect smart strategies, intense challenges, live competition, and mind-blowing innovation — all packed into one electrifying, action-filled experience.</p>
-                                </div>
-                                <div className="about-img-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-                                    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tech 1" style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #333' }} />
-                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tech 2" style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #333' }} />
                                 </div>
                             </div>
                         </div>
@@ -248,7 +247,7 @@ const MainOverlay = () => {
                                     'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                                     'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                                 ].map((src, idx) => (
-                                    <div key={idx} style={{ height: '200px', background: `url('${src}') center/cover`, borderRadius: '8px', border: '1px solid var(--glass-border)', filter: 'grayscale(0.3)' }}></div>
+                                    <div key={idx} style={{ height: '140px', background: `url('${src}') center/cover`, borderRadius: '8px', border: '1px solid var(--glass-border)', filter: 'grayscale(0.3)' }}></div>
                                 ))}
                             </div>
                         </div>

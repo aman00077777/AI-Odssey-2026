@@ -419,14 +419,14 @@ a {
 }
 
 .about-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
   align-items: center;
-  width: 659px !important;
+  width: 800px !important;
   max-width: 100%;
   margin: 0 auto 40px auto;
-  padding: 40px !important;
+  padding: 30px !important;
   background: #7311114D !important;
   backdrop-filter: blur(4px);
   border-radius: 20px !important;
@@ -434,6 +434,14 @@ a {
   position: relative;
   z-index: 1;
 }
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    width: 90% !important;
+  }
+}
+
 
 .about-grid::before {
   content: "";
@@ -455,7 +463,7 @@ a {
   font-family: var(--font-body);
   color: #ccc;
   margin-bottom: 25px;
-  text-align: center;
+  text-align: left;
   font-weight: 300;
   letter-spacing: 1px;
 }
@@ -468,19 +476,19 @@ a {
 }
 
 .about-img-grid img {
-  width: 48% !important;
+  width: 100% !important;
   height: auto !important;
-  max-height: 250px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 10px !important;
   border: 1px solid rgba(255, 0, 0, 0.3) !important;
 }
 
 .about-block-box {
-  width: 659px !important;
+  width: 800px !important;
   max-width: 100%;
   margin: 0 auto;
-  padding: 40px !important;
+  padding: 30px !important;
   background: #7311114D !important;
   backdrop-filter: blur(4px);
   border-radius: 20px !important;
