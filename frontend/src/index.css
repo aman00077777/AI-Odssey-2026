@@ -1079,3 +1079,25 @@ a {
   font-size: 0.9rem;
   line-height: 1.5;
 }
+
+/* Pulsing Metallic Blue Animation */
+.sparkle-text {
+  color: #1e3a8a;
+  /* Dark metallic blue */
+  text-shadow: 0 0 5px rgba(30, 58, 138, 0.5);
+  animation: pulse-metallic 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-metallic {
+  0% {
+    color: #1e3a8a;
+    /* Darker blue */
+    text-shadow: 0 0 5px rgba(30, 58, 138, 0.2);
+  }
+
+  100% {
+    color: #4facfe;
+    /* Brighter metallic blue */
+    text-shadow: 0 0 20px rgba(79, 172, 254, 0.8), 0 0 40px rgba(79, 172, 254, 0.6);
+  }
+}

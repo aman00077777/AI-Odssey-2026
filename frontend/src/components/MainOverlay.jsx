@@ -338,49 +338,20 @@ const MainOverlay = () => {
                 {/* 4.5 Speakers Section */}
                 <section id="speakers" className="speakers section">
                     <div className="container" style={{ textAlign: 'center' }}>
-                        <h2 className="section-title">Our <span>Speakers</span></h2>
+                        <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>Our <span>Speakers</span></h2>
                         <p className="section-subtitle">Insights from industry leaders.</p>
 
-                        <div className="speakers-grid">
-                            {[
-                                { name: 'Dr. Sarah Connor', role: 'AI Ethics Researcher', desc: 'Pioneer in ethical frameworks for AGI development.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                                { name: 'Alex Turing', role: 'Lead Data Scientist', desc: 'Expert in generative models and natural language processing.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                                { name: 'Elena Rostova', role: 'Robotics Engineer', desc: 'Innovator in human-robot interaction and cognitive automation.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-                                { name: 'Marcus Sterling', role: 'Tech Entrepreneur', desc: 'Founder of NextGen AI, focusing on scalable intelligence solutions.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
-                            ].map((speaker, idx) => (
-                                <div className="speaker-card" key={idx}>
-                                    <div className="speaker-img-wrapper">
-                                        <img src={speaker.img} alt={speaker.name} />
-                                    </div>
-                                    <div className="speaker-info">
-                                        <h3>{speaker.name}</h3>
-                                        <h4>{speaker.role}</h4>
-                                        <p>{speaker.desc}</p>
-                                    </div>
+                        <div className="speakers-grid" style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginTop: '40px' }}>
+                            {[1, 2].map((_, idx) => (
+                                <div className="speaker-card" key={idx} style={{ flex: '1', maxWidth: '400px', padding: '50px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(200, 204, 208, 0.15), rgba(135, 140, 145, 0.25), rgba(100, 105, 110, 0.15))', border: '1px solid rgba(135, 140, 145, 0.5)', boxShadow: '0 0 20px rgba(135, 140, 145, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', borderRadius: '15px' }}>
+                                    <h3 className="sparkle-text" style={{ fontFamily: "var(--font-heading)", fontSize: '3rem', letterSpacing: '3px', margin: 0 }}>COMING SOON</h3>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* 5. Registration Section */}
-                <section id="register" className="section" style={{ textAlign: 'center' }}>
-                    <div className="container">
-                        <h2 className="section-title">Registration <span>Criteria</span></h2>
-
-                        <div className="criteria-box" style={{ maxWidth: '800px', margin: '0 auto 40px auto', background: 'var(--glass-bg)', padding: '30px', borderRadius: '8px', border: '1px solid var(--glass-border)', textAlign: 'left', color: 'var(--silver)' }}>
-                            <ul style={{ paddingLeft: '20px', lineHeight: '2' }}>
-                                <li>Must be an enrolled student in a recognized university.</li>
-                                <li>Teams can consist of 1 to 4 members.</li>
-                                <li>A valid student ID is required for on-campus entry.</li>
-                                <li>Registration is non-transferable.</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* 6. Sponsors Section (Moved to Bottom) */}
+                {/* 5. Sponsors Section (Moved up) */}
                 <section id="sponsors" className="sponsors section" style={{ paddingBottom: '100px', minHeight: '100vh' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title">Our <span>Sponsors</span></h2>
