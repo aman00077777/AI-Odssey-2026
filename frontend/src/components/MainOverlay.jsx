@@ -3,6 +3,17 @@ import anime from 'animejs';
 
 import { Link } from 'react-scroll';
 
+// Game Images
+import catchWordImg from '../assets/games/catch_word.png';
+import quizImg from '../assets/games/quiz.png';
+import treasureHuntImg from '../assets/games/treasure_hunt.png';
+import escapeRoomImg from '../assets/games/escape_room.png';
+import aiOrNotImg from '../assets/games/ai_or_not.png';
+import inventoManiaImg from '../assets/games/invento_mania.png';
+import binaryCodingImg from '../assets/games/binary_coding.png';
+
+// About Section Images
+
 const MainOverlay = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -173,18 +184,17 @@ const MainOverlay = () => {
                 </section>
 
                 {/* 2. Standalone About Section */}
-                <section id="about" className="about-sequence section" style={{ background: 'rgba(10, 10, 10, 0.4)', marginTop: '50px', padding: '50px 15px' }}>
+                <section id="about" className="about-sequence section" style={{ background: 'transparent', marginTop: '50px', padding: '50px 15px' }}>
                     <div className="container" style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
 
                         {/* 2.1 About AI Odyssey (1 Image) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">AI ODYSSEY 2026</h2>
                             <div className="about-grid">
-                                <div className="about-img-grid" style={{ display: 'flex', justifyContent: 'center' }}>
-                                    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tech 1" style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px', border: '1px solid #333' }} />
+                                <div className="about-card" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
+                                    <p>We are super excited to announce the launch of AI Odyssey 2026 — the ultimate celebration of innovation, creativity, and next-level technology! This isn't just an event; it's a high-energy platform where ideas spark, skills shine, and future tech leaders rise.</p>
                                 </div>
-                                <div className="about-text" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                                    <p style={{ marginBottom: '15px' }}>We are super excited to announce the launch of AI Odyssey 2026 — the ultimate celebration of innovation, creativity, and next-level technology! This isn't just an event; it's a high-energy platform where ideas spark, skills shine, and future tech leaders rise.</p>
+                                <div className="about-card" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
                                     <p>This year, we're turning things up by blending the power of Artificial Intelligence with the thrill of gaming. Expect smart strategies, intense challenges, live competition, and mind-blowing innovation — all packed into one electrifying, action-filled experience.</p>
                                 </div>
                             </div>
@@ -277,13 +287,13 @@ const MainOverlay = () => {
 
                         <div className="games-slider-container">
                             {[
-                                { name: 'Catch the word and win', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'Quiz', img: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'Treasure Hunt', img: 'https://images.unsplash.com/photo-1505506874110-6a7a6c9924cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'Escape room', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'AI or Not', img: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'Invento-mania', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-                                { name: 'Binary Coding', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+                                { name: 'Catch the word and win', img: catchWordImg },
+                                { name: 'Quiz', img: quizImg },
+                                { name: 'Treasure Hunt', img: treasureHuntImg },
+                                { name: 'Escape room', img: escapeRoomImg },
+                                { name: 'AI or Not', img: aiOrNotImg },
+                                { name: 'Invento-mania', img: inventoManiaImg },
+                                { name: 'Binary Coding', img: binaryCodingImg }
                             ].map((game, idx) => (
                                 <div className="game-glass-card" key={idx}>
                                     <div className="game-card-img-container">
@@ -302,7 +312,7 @@ const MainOverlay = () => {
                 </section>
 
                 {/* 4. Schedule Section (Infinity Stones) */}
-                <section id="schedule" className="schedule section" style={{ background: 'rgba(10,10,10,0.8)' }}>
+                <section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title">Infinity Stone <span>Schedule</span></h2>
                         <p className="section-subtitle">Trace the timeline of the Odyssey.</p>
@@ -354,12 +364,12 @@ const MainOverlay = () => {
                 {/* 5. Sponsors Section (Moved up) */}
                 <section id="sponsors" className="sponsors section" style={{ paddingBottom: '100px', minHeight: '100vh' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
-                        <h2 className="section-title">Our <span>Sponsors</span></h2>
+                        <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>OUR <span>SPONSORS</span></h2>
                         <p className="section-subtitle">The visionaries backing our initiative.</p>
                         <div className="sponsors-grid" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '40px' }}>
                             {[...Array(5)].map((_, idx) => (
-                                <div key={idx} style={{ width: '150px', height: '100px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #333', fontSize: '1.2rem', color: 'var(--silver)', fontWeight: 'bold' }}>
-                                    SPONSOR {idx + 1}
+                                <div key={idx} style={{ width: '200px', height: '120px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #333', fontSize: '1.2rem', color: 'var(--silver)', fontWeight: 'bold', backdropFilter: 'blur(5px)' }}>
+                                    <span className="sparkle-text" style={{ fontSize: '1.5rem', letterSpacing: '2px' }}>COMING SOON</span>
                                 </div>
                             ))}
                         </div>
