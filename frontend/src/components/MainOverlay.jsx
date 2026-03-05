@@ -13,6 +13,10 @@ import inventoManiaImg from '../assets/games/invento_mania.png';
 import binaryCodingImg from '../assets/games/binary_coding.png';
 
 // About Section Images
+import prev1 from '../assets/previous/prev1.jpeg';
+import prev2 from '../assets/previous/prev2.jpeg';
+import prev3 from '../assets/previous/prev3.jpeg';
+import prev4 from '../assets/previous/prev4.jpeg';
 
 // Sponsor Logos
 import beejaLogo from '../assets/logos/beeja_logo.png';
@@ -260,13 +264,8 @@ const MainOverlay = () => {
                             <h2 className="section-title">PREVIOUS AI ODYSSEY</h2>
                             <p className="section-subtitle" style={{ textAlign: 'center' }}>A glimpse into our past triumphs.</p>
                             <div className="previous-gallery" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
-                                {[
-                                    'https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                                    'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                                    'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                                ].map((src, idx) => (
-                                    <div key={idx} style={{ height: '140px', background: `url('${src}') center/cover`, borderRadius: '8px', border: '1px solid var(--glass-border)', filter: 'grayscale(0.3)' }}></div>
+                                {[prev1, prev2, prev3, prev4].map((src, idx) => (
+                                    <div key={idx} style={{ height: '180px', background: `url('${src}') center/cover`, borderRadius: '12px', border: '2px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 4px 15px rgba(226, 54, 54, 0.2)' }}></div>
                                 ))}
                             </div>
                         </div>
