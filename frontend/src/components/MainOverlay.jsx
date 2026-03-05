@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import anime from 'animejs';
+import { animate, stagger } from 'animejs';
 
 import { Link } from 'react-scroll';
 
@@ -46,27 +46,24 @@ const MainOverlay = () => {
 
     useEffect(() => {
         // Initial entry animations
-        anime({
-            targets: '.main-content',
+        animate('.main-content', {
             opacity: [0, 1],
             translateY: [50, 0],
             duration: 1200,
-            easing: 'easeOutCubic'
+            easing: 'outCubic'
         });
 
-        anime({
-            targets: '.nav-links li',
+        animate('.nav-links li', {
             opacity: [0, 1],
             translateY: [-20, 0],
-            delay: anime.stagger(100),
+            delay: stagger(100),
             duration: 800
         });
 
-        anime({
-            targets: '.hero-title, .hero-subtitle, .countdown',
+        animate('.hero-title, .hero-subtitle, .countdown', {
             opacity: [0, 1],
             translateY: [30, 0],
-            delay: anime.stagger(200),
+            delay: stagger(200),
             duration: 1000
         });
 
@@ -106,12 +103,11 @@ const MainOverlay = () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    anime({
-                        targets: entry.target,
+                    animate(entry.target, {
                         opacity: [0, 1],
                         translateY: [50, 0],
                         duration: 1000,
-                        easing: 'easeOutCubic'
+                        easing: 'outCubic'
                     });
                     observer.unobserve(entry.target);
                 }
@@ -147,7 +143,6 @@ const MainOverlay = () => {
                         <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
                         <li><Link activeClass="active" to="sponsors" spy={true} smooth={true} offset={-100} duration={500}>Sponsors</Link></li>
                     </ul>
-                    <a href="https://forms.gle/VdYfMQMAQvV512dXA" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Register Now</a>
                 </div>
             </nav>
 
@@ -170,7 +165,7 @@ const MainOverlay = () => {
 
                         <p className="hero-subtitle">The dawn of a new era. Are you ready to assemble?</p>
 
-                        <div className="countdown" style={{ marginBottom: '80px' }}>
+                        <div className="countdown" style={{ marginBottom: '40px' }}>
                             {['days', 'hours', 'mins', 'secs'].map((unit, idx) => (
                                 <React.Fragment key={unit}>
                                     <div className="time-box">
@@ -179,6 +174,10 @@ const MainOverlay = () => {
                                     {idx < 3 && <div className="time-separator">:</div>}
                                 </React.Fragment>
                             ))}
+                        </div>
+
+                        <div className="hero-cta">
+                            <a href="https://forms.gle/VdYfMQMAQvV512dXA" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">Register Now</a>
                         </div>
                     </div>
                 </section>
