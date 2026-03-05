@@ -1566,6 +1566,15 @@ a {
   white-space: nowrap;
 }
 
+.section-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--marvel-red), transparent);
+  margin: 60px auto;
+  opacity: 0.6;
+}
+
 /* Leaderboard Button Sizing */
 .btn-leaderboard {
   padding: 1rem 2.5rem !important;

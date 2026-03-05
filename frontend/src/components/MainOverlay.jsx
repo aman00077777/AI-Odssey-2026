@@ -205,6 +205,8 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
+                <div className="section-divider"></div>
+
                 {/* 2. Standalone About Section */}
                 <section id="about" className="about-sequence section" style={{ background: 'transparent', marginTop: '50px', padding: '50px 15px' }}>
                     <div className="container" style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
@@ -274,6 +276,8 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
+                <div className="section-divider"></div>
+
                 {/* 3. Games Section (Sliding format) */}
                 <section id="games" className="games section games-section-container">
                     {/* SVG Filter for the Monotone Noise Effect */}
@@ -314,6 +318,8 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
+                <div className="section-divider"></div>
+
                 {/* 4. Schedule Section (Infinity Stones) */}
                 <section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
@@ -348,6 +354,8 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
+                <div className="section-divider"></div>
+
                 {/* 4.5 Speakers Section */}
                 <section id="speakers" className="speakers section">
                     <div className="container" style={{ textAlign: 'center' }}>
@@ -364,6 +372,8 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
+                <div className="section-divider"></div>
+
                 <section id="leaderboard" className="leaderboard section" style={{ padding: '60px 15px 40px' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         {/* Final CTA Button */}
@@ -374,6 +384,8 @@ const MainOverlay = () => {
                         </div>
                     </div>
                 </section>
+
+                <div className="section-divider"></div>
 
                 {/* Sponsors / Partners Section */}
                 <section id="sponsors" className="sponsors-section section">
