@@ -332,10 +332,10 @@ const MainOverlay = () => {
                                 { name: "Space", color: "#1E88E5", event: "Registration Begins", time: "09:00 AM" },
                                 { name: "Mind", color: "#FFD54F", event: "Inauguration Ceremony", time: "09:30 AM - 10:30 AM" },
                                 { name: "Reality", color: "#E53935", event: "Speaker Workshop Session", time: "10:30 AM - 12:00PM" },
-                                { name: "Power", color: "#8E24AA", event: <>Games Session (2 Game)<br /><span className="game-subtext">Binary Code<br />Quiz</span></>, time: "12:00 PM - 01:00 AM" },
+                                { name: "Power", color: "#8E24AA", event: <>Games session<br /><span className="game-subtext">Binary code<br />quiz</span></>, time: "12:00 PM - 01:00 AM" },
                                 { name: "Time", color: "#43A047", event: "Lunch Break", time: "01:00 PM - 01:45 PM" },
-                                { name: "Soul", color: "#FB8C00", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. Shark Tank (Rounds 1: PPT Shortlisting<br />Round 2: Pitch)<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
-                                { name: "Space", color: "#1E88E5", event: <>Games Session (2 Game)<br /><span className="game-subtext">1. AI Or Not<br />2. Find The Word &amp; Win Points</span></>, time: "3:45 PM - 04:30 PM" },
+                                { name: "Soul", color: "#FB8C00", event: <>Games session<br /><span className="game-subtext" style={{ textAlign: "left", display: "inline-block" }}>1. Shark Tank<br />&nbsp;&nbsp;&nbsp;Round 1: PPT Shortlisting<br />&nbsp;&nbsp;&nbsp;Round 2: Pitch<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
+                                { name: "Space", color: "#1E88E5", event: <>Games session<br /><span className="game-subtext">1. AI Or Not<br />2. Find The Word &amp; Win Points</span></>, time: "3:45 PM - 04:30 PM" },
                                 { name: "Mind", color: "#FFD54F", event: "Treasure Hunt", time: "04:30 PM - 05:30 PM" },
                                 { name: "Reality", color: "#E53935", event: "Prize Distribution & Closing Ceremony", time: "5:30 PM" }
                             ].map((stone, idx) => (
