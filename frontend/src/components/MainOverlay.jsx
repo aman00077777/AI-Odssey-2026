@@ -33,6 +33,11 @@ const MainOverlay = () => {
     // Floating Coming Soon state
     const [comingSoonPos, setComingSoonPos] = useState({ show: false, x: 0, y: 0 });
 
+    // Mobile Menu State
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
     const handleComingSoonClick = (e) => {
         // Prevent default behavior if it's acting as a link
         e.preventDefault();
@@ -142,13 +147,20 @@ const MainOverlay = () => {
                     <a href="#" className="logo">
                         <span className="logo-ai">AI</span> ODYSSEY
                     </a>
-                    <ul className="nav-links">
-                        <li><Link activeClass="active" to="home" spy={true} smooth={true} offset={-100} duration={500}>Home</Link></li>
-                        <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500}>About</Link></li>
-                        <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500}>Games</Link></li>
-                        <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500}>Schedule</Link></li>
-                        <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
-                        <li><Link activeClass="active" to="leaderboard" spy={true} smooth={true} offset={-100} duration={500}>Leaderboard</Link></li>
+
+                    <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>
+
+                    <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+                        <li><Link activeClass="active" to="home" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Home</Link></li>
+                        <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>About</Link></li>
+                        <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Games</Link></li>
+                        <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Schedule</Link></li>
+                        <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Speakers</Link></li>
+                        <li><Link activeClass="active" to="leaderboard" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Leaderboard</Link></li>
                     </ul>
                 </div>
             </nav>
