@@ -189,10 +189,8 @@ const MainOverlay = () => {
                         {/* 2.1 About AI Odyssey (1 Image) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">AI ODYSSEY 2026</h2>
-                            <div className="about-grid">
-                                <div className="about-card" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                                    <p>AI Odyssey 2026 is an exciting celebration of innovation, creativity, and technology. The event brings together students to showcase their skills, compete in engaging challenges, and explore the power of Artificial Intelligence. This year’s edition blends AI with the thrill of gaming, creating an action-packed platform where strategy, innovation, and competition come together.</p>
-                                </div>
+                            <div className="about-block-box">
+                                <p style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8', textAlign: 'center' }}>AI Odyssey 2026 is an exciting celebration of innovation, creativity, and technology. The event brings together students to showcase their skills, compete in engaging challenges, and explore the power of Artificial Intelligence. This year’s edition blends AI with the thrill of gaming, creating an action-packed platform where strategy, innovation, and competition come together.</p>
                             </div>
                         </div>
 
