@@ -88,6 +88,12 @@ a {
   box-shadow: 0 0 20px rgba(255, 0, 0, 1), inset 0 0 10px rgba(255, 255, 255, 0.4);
   border-radius: 8px;
   font-weight: 600;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  /* Gradient text for button label */
+  background-image: linear-gradient(to bottom, #FF0000 0%, #000000 100%);
+  background-size: 100% 100%;
 }
 
 .btn-primary::before {
@@ -141,7 +147,7 @@ a {
   text-align: center;
   font-family: var(--font-heading);
   color: var(--marvel-red);
-  background: linear-gradient(to bottom, #777 0%, #333 40%, var(--marvel-red) 60%, var(--dark-red) 100%);
+  background: linear-gradient(to bottom, #FF0000 0%, #000000 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -452,9 +458,8 @@ a {
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
-  /* Retain the gradient and stroke styling */
   color: var(--marvel-red);
-  background: linear-gradient(to bottom, #777 0%, #333 40%, var(--marvel-red) 60%, var(--dark-red) 100%);
+  background: linear-gradient(to bottom, #FF0000 0%, #000000 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
