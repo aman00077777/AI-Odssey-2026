@@ -41,6 +41,11 @@ const MainOverlay = () => {
     // Floating Coming Soon state
     const [comingSoonPos, setComingSoonPos] = useState({ show: false, x: 0, y: 0 });
 
+    // Mobile Menu State
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
     const handleComingSoonClick = (e) => {
         // Prevent default behavior if it's acting as a link
         e.preventDefault();
@@ -150,13 +155,20 @@ const MainOverlay = () => {
                     <a href="#" className="logo">
                         <img src={aiOdysseyLogo} alt="AI Odyssey" style={{ height: '50px', objectFit: 'contain', marginLeft: '-40px' }} />
                     </a>
-                    <ul className="nav-links">
-                        <li><Link activeClass="active" to="home" spy={true} smooth={true} offset={-100} duration={500}>Home</Link></li>
-                        <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500}>About</Link></li>
-                        <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500}>Games</Link></li>
-                        <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500}>Schedule</Link></li>
-                        <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
-                        <li><Link activeClass="active" to="leaderboard" spy={true} smooth={true} offset={-100} duration={500}>Leaderboard</Link></li>
+
+                    <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>
+
+                    <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+                        <li><Link activeClass="active" to="home" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Home</Link></li>
+                        <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>About</Link></li>
+                        <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Games</Link></li>
+                        <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Schedule</Link></li>
+                        <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Speakers</Link></li>
+                        <li><Link activeClass="active" to="leaderboard" spy={true} smooth={true} offset={-100} duration={500} onClick={() => setMenuOpen(false)}>Leaderboard</Link></li>
                     </ul>
                 </div>
             </nav>
@@ -253,9 +265,9 @@ const MainOverlay = () => {
                         <div className="about-block">
                             <h2 className="section-title">PREVIOUS AI ODYSSEY</h2>
                             <p className="section-subtitle" style={{ textAlign: 'center' }}>A glimpse into our past triumphs.</p>
-                            <div className="previous-gallery" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+                            <div className="previous-gallery">
                                 {[prev1, prev2, prev3, prev4].map((src, idx) => (
-                                    <div key={idx} style={{ height: '180px', background: `url('${src}') center/cover`, borderRadius: '12px', border: '2px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 4px 15px rgba(226, 54, 54, 0.2)' }}></div>
+                                    <div key={idx} className="prev-img-card" style={{ backgroundImage: `url('${src}')` }}></div>
                                 ))}
                             </div>
                         </div>
@@ -300,10 +312,10 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* 4. Schedule Section (Infinity Stones) */}
-                <section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
+                < section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title">Infinity Stone <span>Schedule</span></h2>
                         <p className="section-subtitle">Trace the timeline of the Odyssey.</p>
@@ -334,10 +346,10 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* 4.5 Speakers Section */}
-                <section id="speakers" className="speakers section">
+                < section id="speakers" className="speakers section" >
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>Our <span>Speakers</span></h2>
                         <p className="section-subtitle">Insights from industry leaders.</p>
@@ -350,15 +362,13 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
-                <section id="leaderboard" className="leaderboard section" style={{ paddingBottom: '100px' }}>
+                <section id="leaderboard" className="leaderboard section" style={{ padding: '60px 15px 40px' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
-
-
                         {/* Final CTA Button */}
-                        <div style={{ marginTop: '80px' }}>
-                            <button onClick={handleComingSoonClick} className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '4px', boxShadow: '0 0 30px rgba(229, 57, 53, 0.5)', borderRadius: '10px' }}>
+                        <div className="leaderboard-cta" style={{ marginTop: '20px' }}>
+                            <button onClick={handleComingSoonClick} className="btn btn-primary btn-leaderboard">
                                 Leaderboard
                             </button>
                         </div>
@@ -402,20 +412,22 @@ const MainOverlay = () => {
                         </div>
                     </div>
                 </section>
-            </div>
+            </div >
 
             {/* Floating Coming Soon Message - Moved absolutely outside to prevent clipping */}
-            {comingSoonPos.show && (
-                <div
-                    className="floating-coming-soon"
-                    style={{
-                        left: comingSoonPos.x,
-                        top: comingSoonPos.y
-                    }}
-                >
-                    COMING SOON
-                </div>
-            )}
+            {
+                comingSoonPos.show && (
+                    <div
+                        className="floating-coming-soon"
+                        style={{
+                            left: comingSoonPos.x,
+                            top: comingSoonPos.y
+                        }}
+                    >
+                        COMING SOON
+                    </div>
+                )
+            }
         </>
     );
 }

@@ -267,6 +267,34 @@ a {
   text-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.menu-toggle .bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(226, 54, 54, 0.5);
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-7px, -7px);
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -440,8 +468,8 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: stretch;
-  width: 1000px !important;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto 40px auto;
   position: relative;
   z-index: 1;
@@ -506,8 +534,8 @@ a {
 }
 
 .about-block-box {
-  width: 800px !important;
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   padding: 30px !important;
   background: #7311114D !important;
@@ -735,7 +763,60 @@ a {
   font-size: 0.8rem;
 }
 
-/* Infinity Timeline (Schedule) */
+@media (max-width: 768px) {
+  .game-glass-card {
+    min-width: 280px;
+    width: 280px;
+    height: 250px;
+    padding: 12px;
+  }
+
+  .game-glass-card.active-card,
+  .game-glass-card:hover {
+    min-width: 300px;
+    width: 300px;
+    height: 520px;
+  }
+
+  .game-glass-card .game-card-info p {
+    display: none;
+  }
+
+  .game-glass-card.active-card .game-card-info p,
+  .game-glass-card:hover .game-card-info p {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .game-card-img-container {
+    height: 120px;
+  }
+
+  .game-glass-card.active-card .game-card-img-container,
+  .game-glass-card:hover .game-card-img-container {
+    height: 180px;
+  }
+
+  .game-card-info h3 {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    line-height: 1.2;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-card-actions {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    margin-top: auto;
+    padding-bottom: 5px;
+  }
+}
+
+
 .infinity-timeline {
   position: relative;
   max-width: 800px;
@@ -912,12 +993,51 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  width: 100%;
+}
+
+.ai-dept-img-card {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+  filter: grayscale(0.5) contrast(1.2);
+  transition: all 0.3s ease;
+}
+
+.ai-dept-img-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.ai-dept-img-card:hover {
+  filter: grayscale(0) contrast(1);
+  transform: translateY(-5px);
+  border-color: var(--marvel-red);
 }
 
 .previous-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  width: 100%;
+}
+
+.prev-img-card {
+  height: 180px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(226, 54, 54, 0.2);
+  transition: all 0.3s ease;
+}
+
+.prev-img-card:hover {
+  transform: scale(1.05);
+  border-color: var(--marvel-red);
+  box-shadow: 0 8px 25px rgba(226, 54, 54, 0.4);
 }
 
 /* Responsive */
@@ -932,7 +1052,29 @@ a {
 
   .ai-dept-images,
   .previous-gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prev-img-card,
+  .ai-dept-img-card {
+    aspect-ratio: 1/1;
+    height: auto !important;
+  }
+
+  .ai-dept-img-card img {
+    height: 100%;
+  }
+
+  /* For AI department: pair of 2 and one below */
+  .ai-dept-img-card:nth-child(3) {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+    /* Centered wide image */
+  }
+
+  /* Hide 4th image to strictly match "pair of 2 and one below" */
+  .ai-dept-img-card:nth-child(4) {
+    display: none;
   }
 
   .zigzag-row,
@@ -956,15 +1098,15 @@ a {
   .timeline-item,
   .timeline-item:nth-child(odd) {
     flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
   }
 
   .timeline-content,
   .timeline-item:nth-child(odd) .timeline-content {
     width: 100%;
-    padding-left: 60px;
-    padding-right: 0;
+    padding: 0 20px;
+    margin-top: 20px;
   }
 
   .hero-title {
@@ -980,25 +1122,163 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .hero-title-main {
+    font-size: 3rem;
+    flex-direction: row;
+  }
+
+  .ai-text {
+    font-size: 4rem;
+    margin-right: -2px;
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .navbar {
+    padding: 15px 5%;
   }
 
   .menu-toggle {
     display: block;
   }
 
-  .btn-primary {
-    display: none;
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 80%;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    border-left: 1px solid var(--glass-border);
+    padding: 50px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 1.5rem;
+  }
+
+  .hero-title-main {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Added for very small screens */
+    justify-content: center;
+  }
+
+  .ai-text {
+    font-size: 3rem;
+    margin-right: -2px;
+  }
+
+  .hero-welcome-wrapper {
+    gap: 10px;
+  }
+
+  .welcome-line {
+    width: 60px;
+    /* Reduced from 150px */
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+    margin: 0 auto 30px;
+    max-width: 90%;
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .time-box span {
+    font-size: 2.5rem;
+  }
+
+  .time-separator {
+    font-size: 2rem;
+  }
+
+  .countdown {
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .about-block-box {
+    text-align: center;
+    padding: 20px !important;
+  }
+
+  .game-glass-card.active-card,
+  .game-glass-card:hover {
+    min-width: 300px;
+    width: 300px;
+    height: 550px;
+    /* Bit more for safety */
+  }
+
+  .section {
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-line {
+    width: 20px;
+    /* Even smaller for very small phones */
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .logo-ai {
+    font-size: 2.2rem;
+  }
+
+  .hero-title-main {
+    font-size: 2.8rem;
+  }
+
+  .ai-text {
+    font-size: 4rem;
   }
 
   .time-box span {
     font-size: 2rem;
   }
 
-  .time-separator {
-    font-size: 2rem;
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }
 
@@ -1272,4 +1552,31 @@ a {
   color: rgba(200, 200, 200, 0.45);
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* Leaderboard Button Sizing */
+.btn-leaderboard {
+  padding: 1rem 2.5rem !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(229, 57, 53, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+  .btn-leaderboard {
+    padding: 0.8rem 2rem !important;
+    font-size: 1rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-leaderboard {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    width: 80%;
+    /* Takes more width on very small screens for better UX */
+  }
 }
