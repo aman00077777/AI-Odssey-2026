@@ -354,9 +354,9 @@ const MainOverlay = () => {
                         <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>Our <span>Speakers</span></h2>
                         <p className="section-subtitle">Insights from industry leaders.</p>
 
-                        <div className="speakers-grid" style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginTop: '40px' }}>
+                        <div className="speakers-grid">
                             {[1, 2].map((_, idx) => (
-                                <div className="speaker-card" key={idx} style={{ flex: '1', maxWidth: '400px', padding: '50px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(200, 204, 208, 0.15), rgba(135, 140, 145, 0.25), rgba(100, 105, 110, 0.15))', border: '1px solid rgba(135, 140, 145, 0.5)', boxShadow: '0 0 20px rgba(135, 140, 145, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', borderRadius: '15px' }}>
+                                <div className="speaker-card" key={idx}>
                                     <h3 className="sparkle-text" style={{ fontFamily: "var(--font-heading)", fontSize: '3rem', letterSpacing: '3px', margin: 0 }}>COMING SOON</h3>
                                 </div>
                             ))}
@@ -367,7 +367,7 @@ const MainOverlay = () => {
                 <section id="leaderboard" className="leaderboard section" style={{ padding: '60px 15px 40px' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         {/* Final CTA Button */}
-                        <div className="leaderboard-cta" style={{ marginTop: '20px' }}>
+                        <div className="leaderboard-cta" style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', width: '100%' }}>
                             <button onClick={handleComingSoonClick} className="btn btn-primary btn-leaderboard">
                                 Leaderboard
                             </button>
