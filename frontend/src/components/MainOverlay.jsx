@@ -378,7 +378,7 @@ const MainOverlay = () => {
                         <p className="section-subtitle">Insights from industry leaders.</p>
 
                         <div className="speakers-grid">
-                            {[1, 2].map((_, idx) => (
+                            {[1].map((_, idx) => (
                                 <div className="speaker-card" key={idx}>
                                     <h3 className="sparkle-text" style={{ fontFamily: "var(--font-heading)", fontSize: '3rem', letterSpacing: '3px', margin: 0 }}>COMING SOON</h3>
                                 </div>
@@ -408,13 +408,10 @@ const MainOverlay = () => {
                         <h2 className="section-title sponsors-title">OUR <span>PARTNERS</span></h2>
                         <p className="section-subtitle">Proudly supported by our amazing partners.</p>
 
-                        {/* Row 1: Beeja + Campus Body */}
+                        {/* Row 1: Beeja */}
                         <div className="sponsors-logos-row">
                             <div className="sponsor-logo-card sponsor-dark">
                                 <img src={beejaLogo} alt="Beeja" className="sponsor-logo-img" />
-                            </div>
-                            <div className="sponsor-logo-card sponsor-light">
-                                <img src={campusBodyLogo} alt="Campus Body RBU" className="sponsor-logo-img" />
                             </div>
                         </div>
 

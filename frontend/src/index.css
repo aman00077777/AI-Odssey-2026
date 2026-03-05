@@ -1154,8 +1154,10 @@ a {
 }
 
 @media (max-width: 900px) {
-  .section-title {
-    font-size: 3rem;
+
+  .section-title,
+  .about-block .section-title {
+    font-size: 2.5rem;
   }
 
   .hero-logo-img {
@@ -1244,7 +1246,37 @@ a {
 
   .about-block-box {
     text-align: center;
-    padding: 20px !important;
+    padding: 15px !important;
+  }
+
+  /* Shrink text inside about boxes */
+  .about-block-box p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Shrink schedule timeline text */
+  .timeline-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .timeline-content .time-box {
+    font-size: 0.9rem;
+  }
+
+  /* Shrink Games card text */
+  .game-card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .game-card-info p {
+    font-size: 0.8rem !important;
+    margin-bottom: 10px !important;
   }
 
   .game-glass-card {
@@ -1270,7 +1302,7 @@ a {
   }
 
   .section {
-    padding: 60px 5%;
+    padding: 40px 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1306,6 +1338,29 @@ a {
   .btn-lg {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+
+  .section-title,
+  .about-block .section-title {
+    font-size: 2rem !important;
+  }
+
+  /* Further shrink speakers text and padding */
+  .speaker-card {
+    padding: 30px 15px;
+    max-width: 100%;
+  }
+
+  .speaker-info h3 {
+    font-size: 1rem;
+  }
+
+  .speaker-info h4 {
+    font-size: 0.8rem;
+  }
+
+  .sponsors-title {
+    font-size: 2.5rem;
   }
 }
 
