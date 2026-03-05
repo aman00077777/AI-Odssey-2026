@@ -17,6 +17,9 @@ import binaryCodingImg from '../assets/games/binary_coding.png';
 // Sponsor Logos
 import beejaLogo from '../assets/logos/beeja_logo.png';
 import campusBodyLogo from '../assets/logos/campus_body_logo.png';
+import ghrceLogo from '../assets/logos/ghrce_logo.png';
+import ieeeCisLogo from '../assets/logos/ieee_cis_logo.png';
+import jarvisLogo from '../assets/logos/jarvis_logo.png';
 
 const MainOverlay = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -367,12 +370,33 @@ const MainOverlay = () => {
                         <h2 className="section-title sponsors-title">OUR <span>PARTNERS</span></h2>
                         <p className="section-subtitle">Proudly supported by our amazing partners.</p>
 
+                        {/* Row 1: Beeja + Campus Body */}
                         <div className="sponsors-logos-row">
                             <div className="sponsor-logo-card sponsor-dark">
                                 <img src={beejaLogo} alt="Beeja" className="sponsor-logo-img" />
                             </div>
                             <div className="sponsor-logo-card sponsor-light">
                                 <img src={campusBodyLogo} alt="Campus Body RBU" className="sponsor-logo-img" />
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="sponsors-divider">
+                            <div className="sponsors-divider-line"></div>
+                            <span className="sponsors-divider-label">IN ASSOCIATION WITH</span>
+                            <div className="sponsors-divider-line"></div>
+                        </div>
+
+                        {/* Row 2: IEEE CIS + GHRCE (middle) + JARVIS */}
+                        <div className="sponsors-logos-row">
+                            <div className="sponsor-logo-card sponsor-light">
+                                <img src={ieeeCisLogo} alt="IEEE Computational Intelligence Society" className="sponsor-logo-img" />
+                            </div>
+                            <div className="sponsor-logo-card sponsor-light">
+                                <img src={ghrceLogo} alt="GH Raisoni College of Engineering" className="sponsor-logo-img" />
+                            </div>
+                            <div className="sponsor-logo-card sponsor-dark">
+                                <img src={jarvisLogo} alt="JARVIS - Empowered by Innovation" className="sponsor-logo-img" />
                             </div>
                         </div>
                     </div>
