@@ -141,7 +141,7 @@ const MainOverlay = () => {
                         <li><Link activeClass="active" to="games" spy={true} smooth={true} offset={-100} duration={500}>Games</Link></li>
                         <li><Link activeClass="active" to="schedule" spy={true} smooth={true} offset={-100} duration={500}>Schedule</Link></li>
                         <li><Link activeClass="active" to="speakers" spy={true} smooth={true} offset={-100} duration={500}>Speakers</Link></li>
-                        <li><Link activeClass="active" to="sponsors" spy={true} smooth={true} offset={-100} duration={500}>Sponsors</Link></li>
+                        <li><Link activeClass="active" to="leaderboard" spy={true} smooth={true} offset={-100} duration={500}>Leaderboard</Link></li>
                     </ul>
                 </div>
             </nav>
@@ -360,17 +360,15 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
-                {/* 5. Sponsors Section (Moved up) */}
-                <section id="sponsors" className="sponsors section" style={{ paddingBottom: '100px', minHeight: '100vh' }}>
+                <section id="leaderboard" className="leaderboard section" style={{ paddingBottom: '100px' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
-                        <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>OUR <span>SPONSORS</span></h2>
-                        <p className="section-subtitle">The visionaries backing our initiative.</p>
-                        <div className="sponsors-grid" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '40px' }}>
-                            {[...Array(5)].map((_, idx) => (
-                                <div key={idx} style={{ width: '200px', height: '120px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #333', fontSize: '1.2rem', color: 'var(--silver)', fontWeight: 'bold', backdropFilter: 'blur(5px)' }}>
-                                    <span className="sparkle-text" style={{ fontSize: '1.5rem', letterSpacing: '2px' }}>COMING SOON</span>
-                                </div>
-                            ))}
+
+
+                        {/* Final CTA Button */}
+                        <div style={{ marginTop: '80px' }}>
+                            <button onClick={handleComingSoonClick} className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '4px', boxShadow: '0 0 30px rgba(229, 57, 53, 0.5)', borderRadius: '10px' }}>
+                                Leaderboard
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -390,6 +388,6 @@ const MainOverlay = () => {
             )}
         </>
     );
-};
+}
 
 export default MainOverlay;
