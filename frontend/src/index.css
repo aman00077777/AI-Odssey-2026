@@ -392,9 +392,12 @@ a {
   font-family: var(--font-body);
   font-size: 4rem;
   font-weight: 600;
-  color: var(--marvel-red);
-  -webkit-text-stroke: 1.5px rgba(200, 200, 200, 0.9);
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.8);
+  color: #E49B0F;
+  -webkit-text-stroke: 1px rgba(10, 10, 10, 0.6);
+  text-shadow:
+    0 1px 0 rgba(60, 60, 60, 0.5),
+    0 2px 2px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(228, 155, 15, 0.7);
   line-height: 1;
   padding: 10px 0;
 }
@@ -411,11 +414,14 @@ a {
   font-family: var(--font-body);
   font-size: 3rem;
   font-weight: 600;
-  color: var(--marvel-red);
+  color: #E49B0F;
   margin-top: -10px;
   animation: none;
-  -webkit-text-stroke: 1px rgba(200, 200, 200, 0.9);
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.8);
+  -webkit-text-stroke: 1px rgba(10, 10, 10, 0.6);
+  text-shadow:
+    0 1px 0 rgba(60, 60, 60, 0.5),
+    0 2px 2px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(228, 155, 15, 0.7);
 }
 
 @keyframes pulse {
@@ -520,13 +526,13 @@ a {
 
 .about-block-box {
   width: 100%;
-  max-width: 800px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 30px !important;
   background: #7311114D !important;
   backdrop-filter: blur(4px);
   border-radius: 20px !important;
-  box-shadow: 0 0 30px rgba(100, 0, 0, 0.5);
+  box-shadow: 0 0 30px rgba(100, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 1px rgba(80, 80, 80, 0.2);
   position: relative;
   z-index: 1;
 }
@@ -537,13 +543,173 @@ a {
   inset: 0;
   border-radius: 20px;
   padding: 1px;
-  background: linear-gradient(180deg, #CECECE 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #4a4a4a 0%, #1a1a1a 50%, #0f0f0f 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
+}
+
+/* JARVIS FORUM specific overrides */
+.jarvis-forum-box {
+  background: rgba(228, 41, 242, 0.18) !important;
+  box-shadow: 0 0 30px rgba(228, 41, 242, 0.3), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.jarvis-forum-box::before {
+  background: linear-gradient(180deg, rgba(228, 41, 242, 0.9) 0%, rgba(100, 0, 120, 0.6) 100%) !important;
+}
+
+.jarvis-forum-title {
+  background: linear-gradient(to bottom, #E429F2 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(200, 120, 220, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(228, 41, 242, 0.4)) !important;
+}
+
+/* PREVIOUS ODYSSEY specific overrides */
+.prev-odyssey-title {
+  background: linear-gradient(to bottom, #FF0130 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(255, 80, 80, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(255, 1, 48, 0.4)) !important;
+}
+
+/* CENTRE OF EXCELLENCE specific overrides */
+.coe-title {
+  background: linear-gradient(to bottom, #FFD300 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(255, 220, 80, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(255, 211, 0, 0.4)) !important;
+}
+
+.coe-box {
+  background: rgba(255, 211, 0, 0.12) !important;
+  box-shadow: 0 0 30px rgba(255, 211, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.coe-box::before {
+  background: linear-gradient(180deg, rgba(255, 211, 0, 0.9) 0%, rgba(120, 90, 0, 0.5) 100%) !important;
+}
+
+/* AI BLUE specific overrides */
+.ai-blue-title {
+  background: linear-gradient(to bottom, #266EF6 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(80, 140, 255, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(38, 110, 246, 0.4)) !important;
+}
+
+.ai-blue-box {
+  background: rgba(38, 110, 246, 0.12) !important;
+  box-shadow: 0 0 30px rgba(38, 110, 246, 0.25), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.ai-blue-box::before {
+  background: linear-gradient(180deg, rgba(38, 110, 246, 0.9) 0%, rgba(10, 40, 120, 0.5) 100%) !important;
+}
+
+/* AI ORANGE specific overrides */
+.ai-orange-title {
+  background: linear-gradient(to bottom, #FF8B00 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(255, 180, 80, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(255, 139, 0, 0.4)) !important;
+}
+
+.ai-orange-box {
+  background: rgba(255, 139, 0, 0.12) !important;
+  box-shadow: 0 0 30px rgba(255, 139, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.ai-orange-box::before {
+  background: linear-gradient(180deg, rgba(255, 139, 0, 0.9) 0%, rgba(130, 70, 0, 0.5) 100%) !important;
+}
+
+/* IEEE GREEN specific overrides */
+.ieee-green-title {
+  background: linear-gradient(to bottom, #12E772 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(100, 255, 180, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(18, 231, 114, 0.4)) !important;
+}
+
+.ieee-green-box {
+  background: rgba(18, 231, 114, 0.12) !important;
+  box-shadow: 0 0 30px rgba(18, 231, 114, 0.25), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.ieee-green-box::before {
+  background: linear-gradient(180deg, rgba(18, 231, 114, 0.9) 0%, rgba(5, 100, 50, 0.5) 100%) !important;
+}
+
+/* BATTLE CYAN specific overrides */
+.battle-title {
+  background: linear-gradient(to bottom, #00D4FF 0%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px rgba(100, 230, 255, 0.6) !important;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4)) !important;
+  font-size: 2.8rem !important;
+  /* Made smaller */
+  margin-bottom: 1.5rem !important;
+}
+
+.battle-box {
+  background: rgba(0, 212, 255, 0.08) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  padding: 18px !important;
+}
+
+.battle-box h3 {
+  font-family: var(--font-body) !important;
+  /* Match content font */
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+.battle-box li {
+  font-size: 0.8rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 5px !important;
+}
+
+.battle-box::before {
+  /* Gradient Black Border */
+  background: linear-gradient(180deg, #5a5a5a 0%, #1a1a1a 50%, #0a0a0a 100%) !important;
+}
+
+.battle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  /* Narrower container */
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+@media (max-width: 992px) {
+  .battle-container {
+    grid-template-columns: 1fr;
+    max-width: 850px;
+  }
 }
 
 .about-image-card {
@@ -637,10 +803,10 @@ a {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: rgba(226, 54, 54, 0.4);
+  background: rgba(70, 130, 180, 0.45);
   color: white;
   font-size: 1.2rem;
-  border: 1px solid rgba(255, 50, 50, 0.6);
+  border: 1px solid rgba(100, 160, 210, 0.7);
   cursor: pointer;
   z-index: 100;
   display: flex;
@@ -648,12 +814,12 @@ a {
   justify-content: center;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(70, 130, 180, 0.4), inset 0 1px 0 rgba(200, 220, 240, 0.2);
 }
 
 .slider-arrow:hover {
-  background: rgba(226, 54, 54, 0.9);
-  box-shadow: 0 0 20px rgba(226, 54, 54, 0.8);
+  background: rgba(70, 130, 180, 0.9);
+  box-shadow: 0 0 20px rgba(70, 130, 180, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .slider-arrow.left {
@@ -679,14 +845,14 @@ a {
   scroll-snap-align: center;
   flex-shrink: 0;
   /* Exact User Specs */
-  background: rgba(226, 54, 54, 0.2);
-  box-shadow: 0px 4px 4px 0px rgba(226, 54, 54, 0.4);
+  background: linear-gradient(135deg, rgba(228, 155, 15, 0.18) 0%, rgba(180, 120, 5, 0.12) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(228, 155, 15, 0.3);
   border-radius: 44px;
   /* Add SVG noise overlay using pseudo element to avoid filtering children completely */
   position: relative;
   overflow: hidden;
   padding: 15px;
-  border: 2px solid rgba(255, 50, 50, 0.3);
+  border: 2px solid rgba(228, 155, 15, 0.4);
   transition: all 0.5s ease;
   z-index: 10;
   backdrop-filter: blur(8px);
@@ -709,9 +875,9 @@ a {
   height: 480px;
   transform: translateY(-10px);
   /* The specs say everything else is the same */
-  background: rgba(226, 54, 54, 0.2);
-  box-shadow: 0px 4px 4px 0px rgba(226, 54, 54, 0.4);
-  border-color: rgba(255, 50, 50, 0.7);
+  background: linear-gradient(135deg, rgba(228, 155, 15, 0.25) 0%, rgba(180, 120, 5, 0.18) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(228, 155, 15, 0.5);
+  border-color: rgba(228, 155, 15, 0.85);
   z-index: 20;
 }
 
@@ -1302,10 +1468,14 @@ a {
   }
 
   .section {
-    padding: 40px 5%;
+    padding: 25px 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .section-divider {
+    margin: 20px auto;
   }
 
   .container {
@@ -1415,7 +1585,7 @@ a {
       rgba(200, 204, 208, 0.15),
       rgba(135, 140, 145, 0.25),
       rgba(100, 105, 110, 0.15));
-  border: 1px solid rgba(135, 140, 145, 0.5);
+  border: none;
   box-shadow: 0 0 20px rgba(135, 140, 145, 0.2),
     inset 0 0 15px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -1423,6 +1593,22 @@ a {
   text-align: center;
   transition: all 0.3s ease;
   margin: 0 auto;
+  position: relative;
+}
+
+.speaker-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(180deg, #4a4a4a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .speaker-card:hover {
