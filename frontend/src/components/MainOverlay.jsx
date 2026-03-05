@@ -11,6 +11,14 @@ import treasureHuntImg from '../assets/games/treasure_hunt.png';
 import escapeRoomImg from '../assets/games/escape_room.png';
 import aiOrNotImg from '../assets/games/ai_or_not.png';
 
+// Infinity Stones
+import soulStone from '../assets/stones/soul stone.jpg';
+import spaceStone from '../assets/stones/space stone.gif';
+import mindStone from '../assets/stones/mind stone.gif';
+import powerStone from '../assets/stones/power stone.jpeg';
+import timeStone from '../assets/stones/time stone.jpeg';
+import realityStone from '../assets/stones/reality stone.jpeg';
+
 // About Section Images
 import dept1 from '../assets/ai_department/dept1_new.jpeg';
 import dept2 from '../assets/ai_department/dept2.jpeg';
@@ -226,7 +234,11 @@ const MainOverlay = () => {
 
                         {/* 2.1 About AI Odyssey (1 Image) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title ai-orange-title">AI ODYSSEY 2026</h2>
+                            <div className="about-header-with-stones">
+                                <img src={soulStone} alt="Soul Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title ai-orange-title">AI ODYSSEY 2026</h2>
+                                <img src={soulStone} alt="Soul Stone" className="stone-img floating-stone" />
+                            </div>
                             <div className="about-block-box ai-orange-box">
                                 <p style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8', textAlign: 'center' }}>AI Odyssey 2026 is an exciting celebration of innovation, creativity, and technology. The event brings together students to showcase their skills, compete in engaging challenges, and explore the power of Artificial Intelligence. This year’s edition blends AI with the thrill of gaming, creating an action-packed platform where strategy, innovation, and competition come together.</p>
                             </div>
@@ -265,7 +277,11 @@ const MainOverlay = () => {
 
                         {/* 2.2 The AI Department (4 Images) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title ai-blue-title">THE AI DEPARTMENT</h2>
+                            <div className="about-header-with-stones">
+                                <img src={spaceStone} alt="Space Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title ai-blue-title">THE AI DEPARTMENT</h2>
+                                <img src={spaceStone} alt="Space Stone" className="stone-img floating-stone" />
+                            </div>
                             <div className="about-block-box ai-blue-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering focuses on AI, Machine Learning, and emerging technologies. The department promotes practical learning, research, and participation in national and international competitions. Under the leadership of Dr. Achamma Thomas, it prepares students with strong technical knowledge and problem-solving skills to become future AI professionals.</p>
                             </div>
@@ -281,7 +297,11 @@ const MainOverlay = () => {
 
                         {/* 2.3 Centre of Excellence */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title coe-title">CENTRE OF EXCELLENCE (AIML)</h2>
+                            <div className="about-header-with-stones">
+                                <img src={mindStone} alt="Mind Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title coe-title">CENTRE OF EXCELLENCE (AIML)</h2>
+                                <img src={mindStone} alt="Mind Stone" className="stone-img floating-stone" />
+                            </div>
                             <div className="about-block-box coe-box" style={{ maxWidth: '800px', margin: '0 auto 25px', border: 'none' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The Centre of Excellence in AI and ML at G.H. Raisoni College of Engineering is a hub for advanced research, innovation, and industry-oriented learning. With modern labs and resources, it enables students and faculty to work on real-world AI projects while bridging the gap between academic knowledge and practical implementation.</p>
                             </div>
@@ -289,7 +309,11 @@ const MainOverlay = () => {
 
                         {/* 2.4 About JARVIS Forum */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title jarvis-forum-title">JARVIS FORUM</h2>
+                            <div className="about-header-with-stones">
+                                <img src={powerStone} alt="Power Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title jarvis-forum-title">JARVIS FORUM</h2>
+                                <img src={powerStone} alt="Power Stone" className="stone-img floating-stone" />
+                            </div>
                             <div className="about-block-box jarvis-forum-box" style={{ maxWidth: '800px', margin: '0 auto 25px', border: 'none' }}>
                                 <div style={{ position: 'absolute', inset: 0, borderRadius: '20px', padding: '1px', background: 'linear-gradient(180deg, rgba(228,41,242,0.8) 0%, rgba(100,0,120,0.5) 100%)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>JARVIS is the official student forum of the AI Department at G.H. Raisoni College of Engineering. It promotes innovation, leadership, and technical growth through competitions, workshops, and hands-on projects. As the organizer of AI Odyssey, the forum encourages students to collaborate, innovate, and develop practical AI skills.</p>
@@ -298,15 +322,23 @@ const MainOverlay = () => {
 
                         {/* 2.5 About IEEE-CIS, GHRCE */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
-                            <h2 className="section-title ieee-green-title">IEEE-CIS, GHRCE</h2>
+                            <div className="about-header-with-stones">
+                                <img src={timeStone} alt="Time Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title ieee-green-title">IEEE-CIS, GHRCE</h2>
+                                <img src={timeStone} alt="Time Stone" className="stone-img floating-stone" />
+                            </div>
                             <div className="about-block-box ieee-green-box" style={{ maxWidth: '800px', margin: '0 auto 25px', border: 'none' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE Computational Intelligence Society focuses on advancing technologies such as neural networks, fuzzy systems, and evolutionary algorithms. The IEEE CIS Student Chapter at GHRCE provides students opportunities to explore AI technologies, attend workshops, interact with industry experts, and build leadership skills.</p>
+                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE Computational Intelligence Society focuses on advancing technologies suchs as neural networks, fuzzy systems, and evolutionary algorithms. The IEEE CIS Student Chapter at GHRCE provides students opportunities to explore AI technologies, attend workshops, interact with industry experts, and build leadership skills.</p>
                             </div>
                         </div>
 
                         {/* 2.6 Previous AI Odyssey (4 Images) */}
                         <div className="about-block">
-                            <h2 className="section-title prev-odyssey-title">PREVIOUS AI ODYSSEY</h2>
+                            <div className="about-header-with-stones">
+                                <img src={realityStone} alt="Reality Stone" className="stone-img floating-stone" />
+                                <h2 className="section-title prev-odyssey-title">PREVIOUS AI ODYSSEY</h2>
+                                <img src={realityStone} alt="Reality Stone" className="stone-img floating-stone" />
+                            </div>
                             <p className="section-subtitle" style={{ textAlign: 'center' }}>A glimpse into our past triumphs.</p>
                             <div className="previous-gallery">
                                 {[prev1, prev2, prev3, prev4].map((src, idx) => (
@@ -338,12 +370,12 @@ const MainOverlay = () => {
 
                             <div className="games-slider-container" ref={gamesSliderRef}>
                                 {[
-                                    { name: 'Catch the Word and Win', img: catchWordImg, description: 'Participants search for hidden clues in content to form the correct password. Observation and quick thinking lead to victory.' },
-                                    { name: 'Quiz', img: quizImg, description: 'A fast-paced quiz testing knowledge of Artificial Intelligence and technology. Speed and accuracy determine the winners.' },
-                                    { name: 'Treasure Hunt', img: treasureHuntImg, description: 'A campus adventure where teams scan QR codes, decode clues, and solve puzzles to reach the final treasure.' },
+                                    { name: 'Hunt the Hint', img: catchWordImg, description: 'Participants search for hidden clues in content to form the correct password. Observation and quick thinking lead to victory.' },
+                                    { name: 'Infinity IQ', img: quizImg, description: 'A fast-paced quiz testing knowledge of Artificial Intelligence and technology. Speed and accuracy determine the winners.' },
+                                    { name: 'Hunters Grid', img: treasureHuntImg, description: 'A campus adventure where teams scan QR codes, decode clues, and solve puzzles to reach the final treasure.' },
                                     { name: 'Escape Room', img: escapeRoomImg, description: 'Participants solve puzzles and clues under pressure to unlock stages and escape within the given time.' },
-                                    { name: 'AI or Not', img: aiOrNotImg, description: 'Players guess whether a creation is AI-generated or human-made and earn points for correct answers.' },
-                                    { name: 'Invento-Mania', img: inventoManiaImg, description: 'A Shark Tank–style competition where participants pitch AI-based solutions to real-world problems.' }
+                                    { name: 'Bot or Not', img: aiOrNotImg, description: 'Players guess whether a creation is AI-generated or human-made and earn points for correct answers.' },
+                                    { name: 'Rise of AI', img: inventoManiaImg, description: 'A Shark Tank–style competition where participants pitch AI-based solutions to real-world problems.' }
                                 ].map((game, idx) => (
                                     <div className="game-glass-card" key={idx}>
                                         <div className="game-card-img-container">
@@ -377,11 +409,11 @@ const MainOverlay = () => {
                                 { name: "Space", color: "#1E88E5", event: "Registration Begins", time: "09:00 AM" },
                                 { name: "Mind", color: "#FFD54F", event: "Inauguration Ceremony", time: "09:30 AM - 10:30 AM" },
                                 { name: "Reality", color: "#E53935", event: "Speaker Workshop Session", time: "10:30 AM - 12:00PM" },
-                                { name: "Power", color: "#8E24AA", event: <>Games session<br /><span className="game-subtext">Quiz</span></>, time: "12:00 PM - 01:00 AM" },
+                                { name: "Power", color: "#8E24AA", event: <>Games session<br /><span className="game-subtext">Infinity IQ</span></>, time: "12:00 PM - 01:00 AM" },
                                 { name: "Time", color: "#43A047", event: "Lunch Break", time: "01:00 PM - 01:45 PM" },
-                                { name: "Soul", color: "#FB8C00", event: <>Games session<br /><span className="game-subtext" style={{ textAlign: "left", display: "inline-block" }}>1. Shark Tank<br />&nbsp;&nbsp;&nbsp;Round 1: PPT Shortlisting<br />&nbsp;&nbsp;&nbsp;Round 2: Pitch<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
-                                { name: "Space", color: "#1E88E5", event: <>Games session<br /><span className="game-subtext">1. AI Or Not<br />2. Find The Word &amp; Win Points</span></>, time: "3:45 PM - 04:30 PM" },
-                                { name: "Mind", color: "#FFD54F", event: "Treasure Hunt", time: "04:30 PM - 05:30 PM" },
+                                { name: "Soul", color: "#FB8C00", event: <>Games session<br /><span className="game-subtext" style={{ textAlign: "left", display: "inline-block" }}>1. Rise of AI<br />&nbsp;&nbsp;&nbsp;Round 1: PPT Shortlisting<br />&nbsp;&nbsp;&nbsp;Round 2: Pitch<br />2. Escape Room</span></>, time: "01:45 PM - 03:45 PM" },
+                                { name: "Space", color: "#1E88E5", event: <>Games session<br /><span className="game-subtext">1. Bot or Not<br />2. Hunt the Hint</span></>, time: "3:45 PM - 04:30 PM" },
+                                { name: "Mind", color: "#FFD54F", event: "Hunters Grid", time: "04:30 PM - 05:30 PM" },
                                 { name: "Reality", color: "#E53935", event: "Prize Distribution & Closing Ceremony", time: "5:30 PM" }
                             ].map((stone, idx) => (
                                 <div className="timeline-item" key={idx}>

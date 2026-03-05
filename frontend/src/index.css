@@ -705,6 +705,57 @@ a {
   align-items: stretch;
 }
 
+/* Infinity Stones Styling */
+.about-header-with-stones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stone-img {
+  width: 65px;
+  height: 65px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  /* Reduced brightness and slightly lowered contrast to avoid over-exposure */
+  filter: contrast(300%) brightness(80%) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  /* Sharp radial mask to cut off everything except the central glow */
+  -webkit-mask-image: radial-gradient(circle at center, white 20%, transparent 50%);
+  mask-image: radial-gradient(circle at center, white 20%, transparent 50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.floating-stone {
+  animation: floatStone 3s ease-in-out infinite;
+}
+
+@keyframes floatStone {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-header-with-stones {
+    gap: 0.8rem;
+  }
+
+  .stone-img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
 @media (max-width: 992px) {
   .battle-container {
     grid-template-columns: 1fr;
