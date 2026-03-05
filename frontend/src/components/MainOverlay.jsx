@@ -13,12 +13,16 @@ import inventoManiaImg from '../assets/games/invento_mania.png';
 import binaryCodingImg from '../assets/games/binary_coding.png';
 
 // About Section Images
+import dept1 from '../assets/ai_department/dept1_new.jpeg';
+import dept2 from '../assets/ai_department/dept2.jpeg';
+import dept3 from '../assets/ai_department/dept3.jpeg';
 import prev1 from '../assets/previous/prev1.jpeg';
 import prev2 from '../assets/previous/prev2.jpeg';
 import prev3 from '../assets/previous/prev3.jpeg';
 import prev4 from '../assets/previous/prev4.jpeg';
 
 // Sponsor Logos
+import aiOdysseyLogo from '../assets/logos/AI ODYSSEY LOGO.png';
 import beejaLogo from '../assets/logos/beeja_logo.png';
 import campusBodyLogo from '../assets/logos/campus_body_logo.png';
 import ghrceLogo from '../assets/logos/ghrce_logo.png';
@@ -149,7 +153,7 @@ const MainOverlay = () => {
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className="nav-container">
                     <a href="#" className="logo">
-                        <span className="logo-ai">AI</span> ODYSSEY
+                        <img src={aiOdysseyLogo} alt="AI Odyssey" style={{ height: '50px', objectFit: 'contain', marginLeft: '-40px' }} />
                     </a>
 
                     <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
@@ -176,15 +180,15 @@ const MainOverlay = () => {
                     <div className="hero-bg"></div>
                     <div className="container hero-content" style={{ marginTop: '100px' }}>
 
-                        <div className="hero-welcome-wrapper">
+                        <div className="hero-welcome-wrapper" style={{ marginBottom: '25px' }}>
                             <div className="welcome-line"></div>
                             <h2 className="welcome-text">WELCOME TO THE</h2>
                             <div className="welcome-line"></div>
                         </div>
 
-                        <h1 className="hero-title-main">
-                            <span className="ai-text">AI</span>-<span className="odyssey-text">ODYSSEY</span>
-                        </h1>
+                        <div style={{ marginBottom: '30px' }}>
+                            <img src={aiOdysseyLogo} alt="AI Odyssey" style={{ height: '120px', objectFit: 'contain', filter: 'drop-shadow(0 0 20px rgba(226, 54, 54, 0.6))' }} />
+                        </div>
 
                         <p className="hero-subtitle">The dawn of a new era. Are you ready to assemble?</p>
 
@@ -225,16 +229,12 @@ const MainOverlay = () => {
                             <div className="about-block-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering focuses on AI, Machine Learning, and emerging technologies. The department promotes practical learning, research, and participation in national and international competitions. Under the leadership of Dr. Achamma Thomas, it prepares students with strong technical knowledge and problem-solving skills to become future AI professionals.</p>
                             </div>
-                            <div className="ai-dept-images">
+                            <div className="ai-dept-images" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                                 {[
-                                    'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-                                    'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-                                    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-                                    'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-                                ].map((src, i) => (
-                                    <div key={i} className="ai-dept-img-card">
-                                        <img src={src} alt="AI Dept" />
-                                    </div>
+                                    { src: dept1, position: 'center' },
+                                    { src: dept3, position: 'center' }
+                                ].map((img, i) => (
+                                    <img key={i} src={img.src} alt="AI Dept" style={{ width: '100%', height: '200px', objectFit: 'cover', objectPosition: img.position, borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 4px 15px rgba(226, 54, 54, 0.2)' }} />
                                 ))}
                             </div>
                         </div>
@@ -316,12 +316,12 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 <div className="section-divider"></div>
 
                 {/* 4. Schedule Section (Infinity Stones) */}
-                <section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
+                < section id="schedule" className="schedule section" style={{ background: 'transparent' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title">Infinity Stone <span>Schedule</span></h2>
                         <p className="section-subtitle">Trace the timeline of the Odyssey.</p>
@@ -352,12 +352,12 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 <div className="section-divider"></div>
 
                 {/* 4.5 Speakers Section */}
-                <section id="speakers" className="speakers section">
+                < section id="speakers" className="speakers section" >
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h2 className="section-title" style={{ fontFamily: "'American Captain', sans-serif", background: 'linear-gradient(to bottom, #8ca8c4 0%, #4a6fa5 50%, #1c3d6e 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px #b0b5b9', filter: 'drop-shadow(0 0 10px rgba(74, 111, 165, 0.4))' }}>Our <span>Speakers</span></h2>
                         <p className="section-subtitle">Insights from industry leaders.</p>
@@ -370,7 +370,7 @@ const MainOverlay = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 <div className="section-divider"></div>
 
@@ -424,20 +424,22 @@ const MainOverlay = () => {
                         </div>
                     </div>
                 </section>
-            </div>
+            </div >
 
             {/* Floating Coming Soon Message - Moved absolutely outside to prevent clipping */}
-            {comingSoonPos.show && (
-                <div
-                    className="floating-coming-soon"
-                    style={{
-                        left: comingSoonPos.x,
-                        top: comingSoonPos.y
-                    }}
-                >
-                    COMING SOON
-                </div>
-            )}
+            {
+                comingSoonPos.show && (
+                    <div
+                        className="floating-coming-soon"
+                        style={{
+                            left: comingSoonPos.x,
+                            top: comingSoonPos.y
+                        }}
+                    >
+                        COMING SOON
+                    </div>
+                )
+            }
         </>
     );
 }
