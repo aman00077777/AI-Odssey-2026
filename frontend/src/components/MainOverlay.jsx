@@ -153,7 +153,7 @@ const MainOverlay = () => {
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className="nav-container">
                     <a href="#" className="logo">
-                        <img src={aiOdysseyLogo} alt="AI Odyssey" style={{ height: '50px', objectFit: 'contain', marginLeft: '-40px' }} />
+                        <img src={aiOdysseyLogo} alt="AI Odyssey" className="nav-logo-img" />
                     </a>
 
                     <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
@@ -186,8 +186,8 @@ const MainOverlay = () => {
                             <div className="welcome-line"></div>
                         </div>
 
-                        <div style={{ marginBottom: '30px' }}>
-                            <img src={aiOdysseyLogo} alt="AI Odyssey" style={{ height: '120px', objectFit: 'contain', filter: 'drop-shadow(0 0 20px rgba(226, 54, 54, 0.6))' }} />
+                        <div className="hero-logo-wrapper">
+                            <img src={aiOdysseyLogo} alt="AI Odyssey" className="hero-logo-img" />
                         </div>
 
                         <p className="hero-subtitle">The dawn of a new era. Are you ready to assemble?</p>
