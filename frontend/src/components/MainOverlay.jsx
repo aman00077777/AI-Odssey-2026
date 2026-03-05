@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 
 import { Link } from 'react-scroll';
@@ -45,6 +45,16 @@ const MainOverlay = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
+
+    // Games Slider Ref
+    const gamesSliderRef = useRef(null);
+
+    const scrollGames = (direction) => {
+        if (gamesSliderRef.current) {
+            const scrollAmount = window.innerWidth <= 768 ? 330 : 400; // card width + gap approx
+            gamesSliderRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+        }
+    };
 
     const handleComingSoonClick = (e) => {
         // Prevent default behavior if it's acting as a link
@@ -291,29 +301,34 @@ const MainOverlay = () => {
                     <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1400px' }}>
                         <h2 className="section-title">THE <span>GAMES</span></h2>
 
-                        <div className="games-slider-container">
-                            {[
-                                { name: 'Catch the Word and Win', img: catchWordImg, description: 'Participants search for hidden clues in content to form the correct password. Observation and quick thinking lead to victory.' },
-                                { name: 'Quiz', img: quizImg, description: 'A fast-paced quiz testing knowledge of Artificial Intelligence and technology. Speed and accuracy determine the winners.' },
-                                { name: 'Treasure Hunt', img: treasureHuntImg, description: 'A campus adventure where teams scan QR codes, decode clues, and solve puzzles to reach the final treasure.' },
-                                { name: 'Escape Room', img: escapeRoomImg, description: 'Participants solve puzzles and clues under pressure to unlock stages and escape within the given time.' },
-                                { name: 'AI or Not', img: aiOrNotImg, description: 'Players guess whether a creation is AI-generated or human-made and earn points for correct answers.' },
-                                { name: 'Invento-Mania', img: inventoManiaImg, description: 'A Shark Tank–style competition where participants pitch AI-based solutions to real-world problems.' },
-                                { name: 'Binary Coding', img: binaryCodingImg, description: 'Participants convert given data into binary within a time limit, testing speed and technical accuracy.' }
-                            ].map((game, idx) => (
-                                <div className="game-glass-card" key={idx}>
-                                    <div className="game-card-img-container">
-                                        <div className="game-card-img" style={{ backgroundImage: `url(${game.img})` }}></div>
-                                    </div>
-                                    <div className="game-card-info">
-                                        <h3>{game.name}</h3>
-                                        <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px', lineHeight: '1.4' }}>{game.description}</p>
-                                        <div className="game-card-actions" style={{ justifyContent: 'center' }}>
-                                            <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
+                        <div className="slider-wrapper" style={{ position: 'relative' }}>
+                            <button className="slider-arrow left" onClick={() => scrollGames('left')} aria-label="Scroll Left">&#10094;</button>
+                            <button className="slider-arrow right" onClick={() => scrollGames('right')} aria-label="Scroll Right">&#10095;</button>
+
+                            <div className="games-slider-container" ref={gamesSliderRef}>
+                                {[
+                                    { name: 'Catch the Word and Win', img: catchWordImg, description: 'Participants search for hidden clues in content to form the correct password. Observation and quick thinking lead to victory.' },
+                                    { name: 'Quiz', img: quizImg, description: 'A fast-paced quiz testing knowledge of Artificial Intelligence and technology. Speed and accuracy determine the winners.' },
+                                    { name: 'Treasure Hunt', img: treasureHuntImg, description: 'A campus adventure where teams scan QR codes, decode clues, and solve puzzles to reach the final treasure.' },
+                                    { name: 'Escape Room', img: escapeRoomImg, description: 'Participants solve puzzles and clues under pressure to unlock stages and escape within the given time.' },
+                                    { name: 'AI or Not', img: aiOrNotImg, description: 'Players guess whether a creation is AI-generated or human-made and earn points for correct answers.' },
+                                    { name: 'Invento-Mania', img: inventoManiaImg, description: 'A Shark Tank–style competition where participants pitch AI-based solutions to real-world problems.' },
+                                    { name: 'Binary Coding', img: binaryCodingImg, description: 'Participants convert given data into binary within a time limit, testing speed and technical accuracy.' }
+                                ].map((game, idx) => (
+                                    <div className="game-glass-card" key={idx}>
+                                        <div className="game-card-img-container">
+                                            <div className="game-card-img" style={{ backgroundImage: `url(${game.img})` }}></div>
+                                        </div>
+                                        <div className="game-card-info">
+                                            <h3>{game.name}</h3>
+                                            <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px', lineHeight: '1.4' }}>{game.description}</p>
+                                            <div className="game-card-actions" style={{ justifyContent: 'center' }}>
+                                                <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </section >

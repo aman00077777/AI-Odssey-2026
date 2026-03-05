@@ -624,6 +624,52 @@ a {
   display: none;
 }
 
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(226, 54, 54, 0.4);
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid rgba(255, 50, 50, 0.6);
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.slider-arrow:hover {
+  background: rgba(226, 54, 54, 0.9);
+  box-shadow: 0 0 20px rgba(226, 54, 54, 0.8);
+}
+
+.slider-arrow.left {
+  left: 5px;
+}
+
+.slider-arrow.right {
+  right: 5px;
+}
+
+@media (min-width: 900px) {
+  .slider-arrow {
+    display: none;
+  }
+}
+
 .game-glass-card {
   display: flex;
   flex-direction: column;
@@ -1201,12 +1247,26 @@ a {
     padding: 20px !important;
   }
 
+  .game-glass-card {
+    min-width: 300px;
+    width: 300px;
+    height: 246px;
+    /* Base height */
+  }
+
   .game-glass-card.active-card,
   .game-glass-card:hover {
     min-width: 300px;
     width: 300px;
-    height: 550px;
-    /* Bit more for safety */
+    height: 520px;
+    /* Only expand vertically */
+    transform: translateY(-5px);
+  }
+
+  .game-glass-card.active-card .game-card-img-container,
+  .game-glass-card:hover .game-card-img-container {
+    height: 180px;
+    /* Smaller image height on mobile active state to fit text */
   }
 
   .section {
