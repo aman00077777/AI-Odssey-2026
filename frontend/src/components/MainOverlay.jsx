@@ -14,6 +14,10 @@ import binaryCodingImg from '../assets/games/binary_coding.png';
 
 // About Section Images
 
+// Sponsor Logos
+import beejaLogo from '../assets/logos/beeja_logo.png';
+import campusBodyLogo from '../assets/logos/campus_body_logo.png';
+
 const MainOverlay = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -369,6 +373,23 @@ const MainOverlay = () => {
                             <button onClick={handleComingSoonClick} className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '4px', boxShadow: '0 0 30px rgba(229, 57, 53, 0.5)', borderRadius: '10px' }}>
                                 Leaderboard
                             </button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Sponsors / Partners Section */}
+                <section id="sponsors" className="sponsors-section section">
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <h2 className="section-title sponsors-title">OUR <span>PARTNERS</span></h2>
+                        <p className="section-subtitle">Proudly supported by our amazing partners.</p>
+
+                        <div className="sponsors-logos-row">
+                            <div className="sponsor-logo-card sponsor-dark">
+                                <img src={beejaLogo} alt="Beeja" className="sponsor-logo-img" />
+                            </div>
+                            <div className="sponsor-logo-card sponsor-light">
+                                <img src={campusBodyLogo} alt="Campus Body RBU" className="sponsor-logo-img" />
+                            </div>
                         </div>
                     </div>
                 </section>
