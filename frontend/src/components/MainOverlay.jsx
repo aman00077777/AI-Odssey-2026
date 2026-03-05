@@ -223,14 +223,16 @@ const MainOverlay = () => {
                             <div className="about-block-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 25px' }}>
                                 <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering focuses on AI, Machine Learning, and emerging technologies. The department promotes practical learning, research, and participation in national and international competitions. Under the leadership of Dr. Achamma Thomas, it prepares students with strong technical knowledge and problem-solving skills to become future AI professionals.</p>
                             </div>
-                            <div className="ai-dept-images" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '15px' }}>
+                            <div className="ai-dept-images">
                                 {[
                                     'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                                     'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                                     'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                                     'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
                                 ].map((src, i) => (
-                                    <img key={i} src={src} alt="AI Dept" style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #333', filter: 'grayscale(0.5) contrast(1.2)' }} />
+                                    <div key={i} className="ai-dept-img-card">
+                                        <img src={src} alt="AI Dept" />
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -263,9 +265,9 @@ const MainOverlay = () => {
                         <div className="about-block">
                             <h2 className="section-title">PREVIOUS AI ODYSSEY</h2>
                             <p className="section-subtitle" style={{ textAlign: 'center' }}>A glimpse into our past triumphs.</p>
-                            <div className="previous-gallery" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+                            <div className="previous-gallery">
                                 {[prev1, prev2, prev3, prev4].map((src, idx) => (
-                                    <div key={idx} style={{ height: '180px', background: `url('${src}') center/cover`, borderRadius: '12px', border: '2px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 4px 15px rgba(226, 54, 54, 0.2)' }}></div>
+                                    <div key={idx} className="prev-img-card" style={{ backgroundImage: `url('${src}')` }}></div>
                                 ))}
                             </div>
                         </div>
@@ -362,13 +364,11 @@ const MainOverlay = () => {
                     </div>
                 </section>
 
-                <section id="leaderboard" className="leaderboard section" style={{ paddingBottom: '100px' }}>
+                <section id="leaderboard" className="leaderboard section" style={{ padding: '60px 15px 40px' }}>
                     <div className="container" style={{ textAlign: 'center' }}>
-
-
                         {/* Final CTA Button */}
-                        <div style={{ marginTop: '80px' }}>
-                            <button onClick={handleComingSoonClick} className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '4px', boxShadow: '0 0 30px rgba(229, 57, 53, 0.5)', borderRadius: '10px' }}>
+                        <div className="leaderboard-cta" style={{ marginTop: '20px' }}>
+                            <button onClick={handleComingSoonClick} className="btn btn-primary btn-leaderboard">
                                 Leaderboard
                             </button>
                         </div>

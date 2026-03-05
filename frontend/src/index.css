@@ -992,12 +992,51 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  width: 100%;
+}
+
+.ai-dept-img-card {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+  filter: grayscale(0.5) contrast(1.2);
+  transition: all 0.3s ease;
+}
+
+.ai-dept-img-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.ai-dept-img-card:hover {
+  filter: grayscale(0) contrast(1);
+  transform: translateY(-5px);
+  border-color: var(--marvel-red);
 }
 
 .previous-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  width: 100%;
+}
+
+.prev-img-card {
+  height: 180px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(226, 54, 54, 0.2);
+  transition: all 0.3s ease;
+}
+
+.prev-img-card:hover {
+  transform: scale(1.05);
+  border-color: var(--marvel-red);
+  box-shadow: 0 8px 25px rgba(226, 54, 54, 0.4);
 }
 
 /* Responsive */
@@ -1012,7 +1051,29 @@ a {
 
   .ai-dept-images,
   .previous-gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prev-img-card,
+  .ai-dept-img-card {
+    aspect-ratio: 1/1;
+    height: auto !important;
+  }
+
+  .ai-dept-img-card img {
+    height: 100%;
+  }
+
+  /* For AI department: pair of 2 and one below */
+  .ai-dept-img-card:nth-child(3) {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+    /* Centered wide image */
+  }
+
+  /* Hide 4th image to strictly match "pair of 2 and one below" */
+  .ai-dept-img-card:nth-child(4) {
+    display: none;
   }
 
   .zigzag-row,
@@ -1036,15 +1097,15 @@ a {
   .timeline-item,
   .timeline-item:nth-child(odd) {
     flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
   }
 
   .timeline-content,
   .timeline-item:nth-child(odd) .timeline-content {
     width: 100%;
-    padding-left: 60px;
-    padding-right: 0;
+    padding: 0 20px;
+    margin-top: 20px;
   }
 
   .hero-title {
@@ -1066,13 +1127,13 @@ a {
   }
 
   .hero-title-main {
-    font-size: 4rem;
-    flex-direction: column;
+    font-size: 3rem;
+    flex-direction: row;
   }
 
   .ai-text {
-    font-size: 6rem;
-    margin-right: 0;
+    font-size: 4rem;
+    margin-right: -2px;
   }
 }
 
@@ -1112,15 +1173,37 @@ a {
   }
 
   .hero-title-main {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Added for very small screens */
+    justify-content: center;
   }
 
   .ai-text {
-    font-size: 5rem;
+    font-size: 3rem;
+    margin-right: -2px;
+  }
+
+  .hero-welcome-wrapper {
+    gap: 10px;
+  }
+
+  .welcome-line {
+    width: 60px;
+    /* Reduced from 150px */
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
   }
 
   .hero-subtitle {
+    text-align: center;
+    margin: 0 auto 30px;
+    max-width: 90%;
     font-size: 0.9rem;
     padding: 0 10px;
   }
@@ -1138,16 +1221,40 @@ a {
     gap: 10px;
   }
 
-  .about-block .section-title {
-    font-size: 3.5rem;
+  .about-block-box {
+    text-align: center;
+    padding: 20px !important;
+  }
+
+  .game-glass-card.active-card,
+  .game-glass-card:hover {
+    min-width: 300px;
+    width: 300px;
+    height: 550px;
+    /* Bit more for safety */
   }
 
   .section {
     padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
+  .welcome-line {
+    width: 20px;
+    /* Even smaller for very small phones */
+  }
+
   .logo {
     font-size: 1.8rem;
   }
@@ -1444,4 +1551,31 @@ a {
   color: rgba(200, 200, 200, 0.45);
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* Leaderboard Button Sizing */
+.btn-leaderboard {
+  padding: 1rem 2.5rem !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(229, 57, 53, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+  .btn-leaderboard {
+    padding: 0.8rem 2rem !important;
+    font-size: 1rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-leaderboard {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    width: 80%;
+    /* Takes more width on very small screens for better UX */
+  }
 }
