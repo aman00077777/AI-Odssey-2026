@@ -193,13 +193,8 @@ const MainOverlay = () => {
                         {/* 2.1 About AI Odyssey (1 Image) */}
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">AI ODYSSEY 2026</h2>
-                            <div className="about-grid">
-                                <div className="about-card" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                                    <p>We are super excited to announce the launch of AI Odyssey 2026 — the ultimate celebration of innovation, creativity, and next-level technology! This isn't just an event; it's a high-energy platform where ideas spark, skills shine, and future tech leaders rise.</p>
-                                </div>
-                                <div className="about-card" style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                                    <p>This year, we're turning things up by blending the power of Artificial Intelligence with the thrill of gaming. Expect smart strategies, intense challenges, live competition, and mind-blowing innovation — all packed into one electrifying, action-filled experience.</p>
-                                </div>
+                            <div className="about-block-box">
+                                <p style={{ color: '#ccc', fontSize: '1.2rem', lineHeight: '1.8', textAlign: 'center' }}>AI Odyssey 2026 is an exciting celebration of innovation, creativity, and technology. The event brings together students to showcase their skills, compete in engaging challenges, and explore the power of Artificial Intelligence. This year’s edition blends AI with the thrill of gaming, creating an action-packed platform where strategy, innovation, and competition come together.</p>
                             </div>
                         </div>
 
@@ -207,10 +202,7 @@ const MainOverlay = () => {
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">THE AI DEPARTMENT</h2>
                             <div className="about-block-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 25px' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering is a dynamic center of innovation and future-ready education. With a strong focus on Artificial Intelligence, Machine Learning, and emerging technologies, the department equips students with the technical expertise and problem-solving abilities required to address real-world challenges.</p>
-                            </div>
-                            <div className="about-block-box" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 30px' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>Under the leadership of Dr. Achamma Thomas, Head of the Department (HOD), the department promotes hands-on learning, research-oriented projects, and active participation in national and international competitions. By blending strong academic foundations with practical implementation, it prepares students to become confident AI professionals and future innovators.</p>
+                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8' }}>The Department of Artificial Intelligence at G.H. Raisoni College of Engineering focuses on AI, Machine Learning, and emerging technologies. The department promotes practical learning, research, and participation in national and international competitions. Under the leadership of Dr. Achamma Thomas, it prepares students with strong technical knowledge and problem-solving skills to become future AI professionals.</p>
                             </div>
                             <div className="ai-dept-images" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '15px' }}>
                                 {[
@@ -228,10 +220,7 @@ const MainOverlay = () => {
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">CENTRE OF EXCELLENCE (AIML)</h2>
                             <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto 25px' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The Centre of Excellence (CoE) in Artificial Intelligence and Machine Learning at G.H. Raisoni College of Engineering, Nagpur, is a dedicated hub for advanced research, innovation, and industry-focused training. It serves as a platform for implementing best practices, conducting cutting-edge research, and nurturing technical excellence in AI and ML.</p>
-                            </div>
-                            <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>Equipped with state-of-the-art laboratories and modern resources, the CoE enables students and faculty to work on transformative, real-world projects across diverse domains. By bridging academic knowledge with practical implementation, the Centre empowers learners to develop impactful AI-driven solutions for industry and society.</p>
+                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The Centre of Excellence in AI and ML at G.H. Raisoni College of Engineering is a hub for advanced research, innovation, and industry-oriented learning. With modern labs and resources, it enables students and faculty to work on real-world AI projects while bridging the gap between academic knowledge and practical implementation.</p>
                             </div>
                         </div>
 
@@ -239,10 +228,7 @@ const MainOverlay = () => {
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">JARVIS FORUM</h2>
                             <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto 25px' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>JARVIS is the official student forum of the Department of Artificial Intelligence at G.H. Raisoni College of Engineering, Nagpur. It is dedicated to fostering innovation, creativity, leadership, and technical excellence among students passionate about Artificial Intelligence and emerging technologies.</p>
-                            </div>
-                            <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>As the driving force behind AI Odyssey, JARVIS provides a dynamic platform for students to engage in competitions, workshops, expert sessions, and hands-on projects. Guided by its inspiring vision of promoting practical implementation over theory, the forum empowers students to collaborate, innovate, and grow into future-ready AI professionals.</p>
+                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>JARVIS is the official student forum of the AI Department at G.H. Raisoni College of Engineering. It promotes innovation, leadership, and technical growth through competitions, workshops, and hands-on projects. As the organizer of AI Odyssey, the forum encourages students to collaborate, innovate, and develop practical AI skills.</p>
                             </div>
                         </div>
 
@@ -250,10 +236,7 @@ const MainOverlay = () => {
                         <div className="about-block" style={{ marginBottom: '60px' }}>
                             <h2 className="section-title">IEEE-CIS, GHRCE</h2>
                             <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto 25px' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE Computational Intelligence Society (IEEE CIS) is a global community dedicated to advancing computational intelligence technologies such as neural networks, fuzzy systems, and evolutionary algorithms. It promotes innovation, research, and the practical application of intelligent systems across diverse real-world domains.</p>
-                            </div>
-                            <div className="about-block-box" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE CIS Student Branch Chapter at G.H. Raisoni College of Engineering provides students with a strong platform to explore emerging AI technologies, participate in technical workshops, connect with industry professionals, and develop leadership skills. Through collaborative activities and knowledge-sharing initiatives, the chapter prepares students to excel in the evolving world of Artificial Intelligence and intelligent computing.</p>
+                                <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'center' }}>The IEEE Computational Intelligence Society focuses on advancing technologies such as neural networks, fuzzy systems, and evolutionary algorithms. The IEEE CIS Student Chapter at GHRCE provides students opportunities to explore AI technologies, attend workshops, interact with industry experts, and build leadership skills.</p>
                             </div>
                         </div>
 
@@ -290,13 +273,13 @@ const MainOverlay = () => {
 
                         <div className="games-slider-container">
                             {[
-                                { name: 'Catch the word and win', img: catchWordImg },
-                                { name: 'Quiz', img: quizImg },
-                                { name: 'Treasure Hunt', img: treasureHuntImg },
-                                { name: 'Escape room', img: escapeRoomImg },
-                                { name: 'AI or Not', img: aiOrNotImg },
-                                { name: 'Invento-mania', img: inventoManiaImg },
-                                { name: 'Binary Coding', img: binaryCodingImg }
+                                { name: 'Catch the Word and Win', img: catchWordImg, description: 'Participants search for hidden clues in content to form the correct password. Observation and quick thinking lead to victory.' },
+                                { name: 'Quiz', img: quizImg, description: 'A fast-paced quiz testing knowledge of Artificial Intelligence and technology. Speed and accuracy determine the winners.' },
+                                { name: 'Treasure Hunt', img: treasureHuntImg, description: 'A campus adventure where teams scan QR codes, decode clues, and solve puzzles to reach the final treasure.' },
+                                { name: 'Escape Room', img: escapeRoomImg, description: 'Participants solve puzzles and clues under pressure to unlock stages and escape within the given time.' },
+                                { name: 'AI or Not', img: aiOrNotImg, description: 'Players guess whether a creation is AI-generated or human-made and earn points for correct answers.' },
+                                { name: 'Invento-Mania', img: inventoManiaImg, description: 'A Shark Tank–style competition where participants pitch AI-based solutions to real-world problems.' },
+                                { name: 'Binary Coding', img: binaryCodingImg, description: 'Participants convert given data into binary within a time limit, testing speed and technical accuracy.' }
                             ].map((game, idx) => (
                                 <div className="game-glass-card" key={idx}>
                                     <div className="game-card-img-container">
@@ -304,6 +287,7 @@ const MainOverlay = () => {
                                     </div>
                                     <div className="game-card-info">
                                         <h3>{game.name}</h3>
+                                        <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px', lineHeight: '1.4' }}>{game.description}</p>
                                         <div className="game-card-actions" style={{ justifyContent: 'center' }}>
                                             <button className="btn btn-outline" onClick={handleComingSoonClick}>Rule Book</button>
                                         </div>
